@@ -4,7 +4,8 @@ var classicItemInfo = [['rock', '../assets/rock.jpeg'],
                 ['scissor', '../assets/scissor.png']];
 
 var taItemInfo = [];
-var customItemInfo;
+var customItemInfo = [];
+
 var userWins = 0;
 var rounds = 7;
 var initialNumberOfRounds = 7;
@@ -57,6 +58,8 @@ function oneRound(userInput) {
 
 // console.log(oneRound(itemArray[0]));
 
+var interactionPanel = document.getElementById('interaction-panel');
+
 var userInputContainer = document.getElementById('user-input-container');
 userInputContainer.addEventListener('click', processUserSelection);
 
@@ -68,6 +71,7 @@ function processUserSelection(event) {
       var userInput = itemArray[parseInt(clickedOnDiv)];
       console.log('user input is ' + userInput.name);
       console.log(oneRound(userInput));
+      reportOneRound();
     }
     rounds--;
     if (rounds == 0) {
@@ -80,3 +84,16 @@ function displayResult() {
   console.log('done');
   console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
 }
+
+// function reportOneRound() {
+//   var oneRoundReport = document.createElement('div');
+//   var computerChoice = document.createElement('img');
+//   computerChoice.src = 'assets/paper.jpeg';
+//   var text = document.createTextNode('computer chose ');
+//   oneRoundReport.appendChild(text);
+//   oneRoundReport.appendChild(computerChoice);
+//   while (interactionPanel.firstChild) {
+//     interactionPanel.removeChild(interactionPanel.firstChild);
+//   }
+//   interactionPanel.appendChild(oneRoundReport);
+// }
