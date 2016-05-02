@@ -26,6 +26,11 @@ body {
     zoom: 1;
 }
 
+
+.hidden {
+  display: none;
+}
+
 .container {
     width: 960px;
     margin: 0 auto;
@@ -49,6 +54,27 @@ body {
     max-width: 540px;
     color: #fff;
     margin: 0 0 12px 20px;
+}
+
+.interaction {
+  width: 720px;
+  height: 500px;
+  position: relative;
+  /*display: flex;
+  flex-direction: row;*/
+}
+
+.box1 {
+  border: 1px solid black;
+  position: absolute;
+  top: 155px;
+  left: 105px;
+  width: 220px;
+  height: 220px;
+  margin: 0;
+  padding: 0;
+  background-image: url('../assets/frame-brown2.png');
+  background-size: 220px 220px;
 }
 
 /*******************************TA SECTION*******************************/
