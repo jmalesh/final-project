@@ -1,5 +1,79 @@
+div {
+    display: block;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/*******************************CLASSIC SECTION*******************************/
+.section-classic {
+  background: url('https://i.ytimg.com/vi/UYxpX3N20qU/maxresdefault.jpg');
+  height: 720px;
+}
+
+.section-classic h2 {
+  font: 70px/68px 'Playfair Display', Georgia, serif;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 0 60px 20px;
+}
+
+.section-classic p {
+    font: 16px/30px 'Fauna One', Georgia, serif;
+    max-width: 540px;
+    color: #fff;
+    margin: 0 0 12px 20px;
+}
+
+/*******************************TA SECTION*******************************/
+.section-tas {
+  background: #002041 url('https://femmebot.github.io/google-type/images/the-boy-bathing/bg-sm.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #eee6d2;
+  padding: 30px;
+  /*height: 700px;*/
+}
+
+.section-the-boy-bathing .container h2 {
+    font: 46px/52px 'Quando', sans-serif;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.section-the-boy-bathing p {
+    font: 20px/28px 'Judson', sans-serif;
+    font-weight: 300;
+    margin-bottom: 26px;
+}
+
+
 .custom-game {
   display: flex;
   justify-content: space-around;
-
 }
