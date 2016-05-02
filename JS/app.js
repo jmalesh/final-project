@@ -102,9 +102,13 @@ function displayResult() {
   } else {
     p.textContent = 'You lost!';
     console.log('done');
-    console.log('You lost!');
+    console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
   }
+  var buttonDisplay = document.getElementById('button-display');
+  buttonDisplay.removeAttribute('hidden');
 }
+
+
 
 // function reportOneRound() {
 //   var oneRoundReport = document.createElement('div');
