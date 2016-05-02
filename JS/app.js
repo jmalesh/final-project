@@ -6,11 +6,11 @@ var classicItemInfo = [['rock', '../assets/rock.jpeg'],
 var taItemInfo = [];
 var customItemInfo;
 
-function RPSItem(name, url) {
-  this.name = name;
-  this.url = url;
-  this.beat = null;
-}
+// function RPSItem(name, url) {
+//   this.name = name;
+//   this.url = url;
+//   this.beat = null;
+// }
 
 RPSItem.prototype.setBeat = function(other) {
   this.beat = other;
@@ -26,4 +26,9 @@ function makeGameArray(inputInfo){
   itemArray[2].setBeat(itemArray[1]);
 }
 makeGameArray(classicItemInfo);
+
 //generate random number for computer choice
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+getRandomInt(arrayItem.length);
