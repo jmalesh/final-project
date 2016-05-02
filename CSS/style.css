@@ -1,0 +1,16 @@
+img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.all-image-container {
+  background: green;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container {
+  height: 300px;
+  width: 300px;
+  border:1px solid black;
+}
