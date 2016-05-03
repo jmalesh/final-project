@@ -47,9 +47,11 @@ body {
 .section-intro>.container {
   width: 100%;
   max-width: 1280px;
+  height: 720px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
 .section-intro .title-container {
@@ -57,7 +59,7 @@ body {
   max-width: 500px;
   overflow: hidden;
   word-wrap: normal;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .section-intro h2 {
@@ -68,66 +70,79 @@ body {
   text-align: left;
   text-transform: uppercase;
   letter-spacing: 15px;
+  padding: 0;
+  margin: 0;
 }
 
 .section-intro .p-container {
-  text-align: center;
+  text-align: justify;
   width: 500px;
   word-wrap: normal;
-  margin: 0 auto;
+  margin: 0 0 100px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid #fff;
+  border-top: 2px solid #fff;
 }
 
 /*******************************CLASSIC SEPARATOR*******************************/
 .section-separator-classic {
-  background: url('https://femmebot.github.io/google-type/images/prophet.jpg') no-repeat center center fixed;
+  background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
   background-size: cover;
-  height: 720px;
+  min-width: 720px;
+  height: 450px;
 }
 
-.section-separator-classic>.container {
+/*.section-separator-classic>.container {
   width: 100%;
   overflow: hidden;
-  padding: 40px 180px 140px;
-  background-color: rgba(0,0,0,0.45);
-  box-sizing: border-box;
-  height: 720px;
-}
+  /*padding: 40px 180px 140px;*/
+  /*background-color: white;*/
+  /*box-sizing: border-box;*/
+  /*height: 500px;*/
+/*}*/
 
 /*******************************CLASSIC SECTION*******************************/
 .section-classic {
-  background: url('https://i.ytimg.com/vi/UYxpX3N20qU/maxresdefault.jpg') no-repeat center;
+  background-color: black;
   height: 720px;
-  background-size: cover;
   overflow: hidden;
 }
 
+.secton-classic .container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .section-classic h2 {
-  font: 70px/68px 'Playfair Display', Georgia, serif;
+  font: 400 76px/80px 'Oswald', sans-serif;
   color: #fff;
+  letter-spacing: .02em;
+  text-align: left;
+  margin: 90px 0 40px 0;
   text-transform: uppercase;
-  margin: 0 0 60px 20px;
 }
 
 .section-classic p {
-    font: 16px/30px 'Fauna One', Georgia, serif;
-    max-width: 540px;
-    color: #fff;
-    margin: 0 0 12px 20px;
+  font: 17px/30px 'Amiri', serif;
+  color: #fff;
+}
+
+.section-classic .classic-description {
+  text-align: justify;
+  letter-spacing: .05em;
+  margin: 60px auto 60px auto;
+  max-width: 600px;
 }
 
 .classic-user-interaction-panel {
   display: flex;
   flex-direction: row;
   width: auto;
-  /*width: 720px;
-  height: 500px;
-  position: relative;*/
-  /*display: flex;
-  flex-direction: row;*/
+  justify-content: center;
 }
 
 .classic-user-interaction-panel img {
@@ -139,6 +154,60 @@ body {
   width: 200px;
   height: 200px;
   border: 1px solid black;
+}
+
+.section-classic .play-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.section-classic .classic-round-result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*text-transform: capitalize;*/
+
+}
+
+.section-classic button {
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  padding: 0 30px;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font: 17px/30px 'Amiri', serif;
+  color: #fff;
+  /*font-weight: 600;*/
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 0px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.section-classic button:hover {
+  color: #c31;
+  border-color: white;
+  outline: 0;
+}
+
+/*******************************CLASSIC SEPARATOR*******************************/
+.section-separator-tas {
+  background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
+  background-size: cover;
+  min-width: 720px;
+  height: 450px;
 }
 
 /*******************************TA SECTION*******************************/
