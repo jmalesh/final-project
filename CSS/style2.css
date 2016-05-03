@@ -35,27 +35,66 @@ body {
     margin: 0 auto;
 }
 
-/*******************************SEPARATOR**************************************/
-.separator {
-    background-size: cover;
-    color: #eee6d2;
-    padding: 30px;
+/*******************************SECTION INTRO*******************************/
+.section-intro {
+  font-family: 'Quattrocento', serif;
+  background-color: #212221;
+  color: white;
+  display: flex;
+  flex-direction: row;
 }
 
-.image-one {
-  background: #002041 url('https://femmebot.github.io/google-type/images/the-boy-bathing/bg-sm.jpg') no-repeat center center fixed;
-  height: 1000px;
-  width: 720px;
+.section-intro>.container {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.image-two {
-  background: #002041 url('http://femmebot.github.io/google-type/images/bg-wolf-sheep-ram.png') no-repeat center center fixed;
-  height: 1000px;
+.section-intro .title-container {
+  text-align: left;
+  max-width: 500px;
+  overflow: hidden;
+  word-wrap: normal;
+  margin: 0 auto;
 }
 
-.image-three {
-  background: #002041 url('http://femmebot.github.io/google-type/images/hound.jpg') no-repeat center center fixed;
-  height: 1000px;
+.section-intro h2 {
+  font-size: 90px;
+  line-height: 100px;
+  font-weight: normal;
+  color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+}
+
+.section-intro .p-container {
+  text-align: center;
+  width: 500px;
+  word-wrap: normal;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*******************************CLASSIC SEPARATOR*******************************/
+.section-separator-classic {
+  background: url('https://femmebot.github.io/google-type/images/prophet.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 720px;
+}
+
+.section-separator-classic>.container {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 180px 140px;
+  background-color: rgba(0,0,0,0.45);
+  box-sizing: border-box;
+  height: 720px;
 }
 
 /*******************************CLASSIC SECTION*******************************/
