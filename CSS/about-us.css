@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+}
+
+.intro {
+  background: darkblue no-repeat;
+  background-size: cover;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  height: 700px;
+}
+
+.first {
+  background: url('Img/abiqua.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 700px;
+    padding: 50px;
+}
+
+.second {
+  background: maroon no-repeat;
+  background-size: cover;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  height: 700px;
+}
+
+.third {
+  background: url('Img/glide.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 700px;
+    padding: 50px;
+}
+
+.fourth {
+  background: darkgreen no-repeat;
+  background-size: cover;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  height: 700px;
+}
+
+p {
+  margin-top: 0;
+}
