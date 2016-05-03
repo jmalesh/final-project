@@ -46,40 +46,59 @@ function getRandomInt(max) {
 function oneRound(userInput) {
   var computerInput = itemArray[getRandomInt(itemArray.length)];
   console.log('comp input is ' + computerInput.name);
-  var roundWinner = document.getElementById('round-winner');
-  roundWinner.removeAttribute('hidden');
-  var p = document.getElementById('round-message');
+  var roundWinner = document.createElement('p');
+  // roundWinner.removeAttribute('hidden');
+  // var p = document.getElementById('round-message');
   if (userInput.beat === computerInput.beat) {
-    p.textContent = 'It\'s a tie!';
-    return 0;
+    roundWinner.appendChild(document.createTextNode('Tie'));
   } else if (userInput.beat === computerInput) {
-    p.textContent = 'You won!';
+    roundWinner.appendChild(document.createTextNode('Won'));
     userWins++;
-    return 1;
   } else {
-    p.textContent = 'You lost!';
-    return -1;
+    roundWinner.appendChild(document.createTextNode('Lost'));
   }
+  while (resultContainer.firstChild) {
+    resultContainer.removeChild(resultContainer.firstChild);
+  }
+  userInteractionPanel.removeEventListener('click', processUserSelection);
+  resultContainer.appendChild(roundWinner);
+  resultContainer.appendChild(continueButton);
 }
+
+
 
 // console.log(oneRound(itemArray[0]));
 
-var interactionPanel = document.getElementById('interaction-panel');
+var userInteractionPanel = document.getElementById('classic-user-interaction-panel');
 
-var userInputContainer = document.getElementById('user-input-container');
-userInputContainer.addEventListener('click', processUserSelection);
+var resultContainer = document.getElementById('classic-round-result-container');
+
+var continueButton = document.createElement('button');
+continueButton.textContent = 'Continue';
+continueButton.style.margin = '5px';
+continueButton.addEventListener('click', continueGame);
+
+function continueGame() {
+  userInteractionPanel.addEventListener('click', processUserSelection);
+  while (resultContainer.firstChild) {
+    resultContainer.removeChild(resultContainer.firstChild);
+  }
+}
+
+// var userInputContainer = document.getElementById('user-input-container');
+userInteractionPanel.addEventListener('click', processUserSelection);
 
 function processUserSelection(event) {
   if (rounds) {
     var clickedOnDiv = parseInt(event.target.parentNode.id);
-    // console.log('user clicked on div number ' + clickedOnDiv);
+    console.log('user clicked on div number ' + clickedOnDiv);
     if (!isNaN(clickedOnDiv)) {
       var userInput = itemArray[parseInt(clickedOnDiv)];
       console.log('user input is ' + userInput.name);
-      console.log(oneRound(userInput));
+      oneRound(userInput);
       // reportOneRound();
+      rounds--;
     }
-    rounds--;
     if (rounds == 0) {
       displayResult();
     }
