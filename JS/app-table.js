@@ -124,15 +124,15 @@ function tableHeader(){
   tr.appendChild(th);
   scoreTable.appendChild(tr);
 }
-tableHeader();
 
 var allUsersArray = [];
 
-function UserProfile(userName, userScore) {
+function UserProfile(userName) {
   this.userName = userName;
-  this.userScore = userScore;
+  this.userScore = 0;
   allUsersArray.push(this);
 }
+
 var Jam = new UserProfile('Jam', 5);
 var Vien = new UserProfile('Vien', 7);
 var Jeremy = new UserProfile('Jeremy', 2);
@@ -149,7 +149,9 @@ function sortAllUserArray(objectArray){
 }
 
 function renderScore() {
+
   sortAllUserArray(allUsersArray);
+  tableHeader();
 
   for(var i = 0; i < allUsersArray.length; i++){
     var tr = document.createElement('tr');
