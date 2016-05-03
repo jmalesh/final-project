@@ -1,3 +1,20 @@
+var panel1 = document.getElementById('panel1');
+function handlePanel1() {
+  makeGameArray(classicItemInfo);
+};
+panel1.addEventListener('click', handlePanel1);
+
+var panel2 = document.getElementById('panel2');
+function handlePanel2() {
+  makeGameArray(taItemInfo);
+}
+panel2.addEventListener('click', handlePanel2);
+
+// var panel3 = document.getElementById('panel3');
+// function handlePanel3() {
+//   makeGameArray(customItemInfo);
+// }
+// panel3.addEventListener('click', handlePanel3);
 //getting info from the local storage
 var allUsersArray = [];
 (function getUserNameFromLocalStorage () {
@@ -27,7 +44,10 @@ var classicItemInfo = [['rock', '../assets/rock.jpeg'],
                 ['paper', '../assets/paper.jpeg'],
                 ['scissor', '../assets/scissor.png']];
 
-var taItemInfo = [];
+var taItemInfo = [['Dan', '../assets/Dan.png'],
+['Jonathan', '../assets/Jonathan.jpeg'],
+['Katie', '../assets/katie.jpeg']];
+
 var customItemInfo = [];
 
 var userWins = 0;
@@ -56,7 +76,7 @@ function makeGameArray(inputInfo) {
   }
 }
 // populate array with classic items
-makeGameArray(classicItemInfo);
+//makeGameArray(classicItemInfo);
 
 //generate random number for computer choice
 function getRandomInt(max) {
@@ -88,15 +108,19 @@ function oneRound(userInput) {
 
 // console.log(oneRound(itemArray[0]));
 
-var interactionPanel = document.getElementById('interaction-panel');
-
 var userInputContainer = document.getElementById('user-input-container');
 userInputContainer.addEventListener('click', processUserSelection);
+
+var userInputContainer2 = document.getElementById('user-input-container2');
+userInputContainer2.addEventListener('click', processUserSelection);
+
+var userInputContainer3 = document.getElementById('user-input-container3');
+userInputContainer3.addEventListener('click', processUserSelection);
 
 function processUserSelection(event) {
   if (rounds) {
     var clickedOnDiv = parseInt(event.target.parentNode.id);
-    // console.log('user clicked on div number ' + clickedOnDiv);
+    console.log('user clicked on div number ' + clickedOnDiv);
     if (!isNaN(clickedOnDiv)) {
       var userInput = itemArray[parseInt(clickedOnDiv)];
       console.log('user input is ' + userInput.name);
@@ -104,6 +128,7 @@ function processUserSelection(event) {
       // reportOneRound();
     }
     rounds--;
+    console.log('number of ' + rounds);
     if (rounds == 0) {
       displayResult();
     }
@@ -193,58 +218,41 @@ button3.addEventListener('click', function(){
   scoreTable.textContent = '';
 });
 
-// function reportOneRound() {
-//   var oneRoundReport = document.createElement('div');
-//   var computerChoice = document.createElement('img');
-//   computerChoice.src = 'assets/paper.jpeg';
-//   var text = document.createTextNode('computer chose ');
-//   oneRoundReport.appendChild(text);
-//   oneRoundReport.appendChild(computerChoice);
-//   while (interactionPanel.firstChild) {
-//     interactionPanel.removeChild(interactionPanel.firstChild);
-//   }
-//   interactionPanel.appendChild(oneRoundReport);
-// }
+var userInputContainer = document.getElementById('user-input-container');
+userInputContainer.addEventListener('click', processUserSelection);
 
-//table
-// function displayHeader() {
-//   var appendHeader = document.getElementById('header');
-//   var tr = document.createElement('tr');
-//   var th = document.createElement('th');
-//   th.textContent = ('Location');
-//   tr.appendChild(th);
-//   appendHeader.appendChild(tr);
-//   for (var i = 0; i < timesOpenAndTotal.length; i++) {
-//     var th = document.createElement('th');
-//     th.textContent = timesOpenAndTotal[i];
-//     tr.appendChild(th);
-//   }
-// }
-//
-// displayHeader();
-//
-// var appendRow = document.getElementById('sales');
-//
-// function displaySales(location) {
-//   var tr = document.createElement('tr');
-//   var th = document.createElement('th');
-//   th.textContent = location.locationName;
-//   tr.appendChild(th);
-//   appendRow.appendChild(tr);
-//
-//   for (var i = 0; i < location.calculateCookieSales().length; i++) {
-//     td = document.createElement('td');
-//     td.textContent = location.calculateCookieSales()[i];
-//     tr.appendChild(td);
-//   }
-// };
-//
-// var pikePlace = new Location('Pike Place', 17, 88, 5.2);
-// var seaTac = new Location('Sea Tac Airport', 6, 24, 1.2);
-// var sourthCenter = new Location('South Center', 11, 38, 1.9);
-// var bellevue = new Location('Bellevue', 20, 48, 3.3);
-// var alki = new Location('Alki', 3, 24, 2.6);
-// for (var i = 0; i < allStores.length; i++) {
-//   displaySales(allStores[i]);
-// }
-//needed so initial data shows
+var customInput = document.getElementById('custom-input');
+customInput.addEventListener('submit', handleCustomInput);
+
+var custom1 = [];
+var custom2 = [];
+var custom3 = [];
+
+function handleCustomInput(event) {
+  console.log('hello!');
+  event.preventDefault();
+  var photo1 = event.target.photo1.value;
+  var url1 = event.target.url1.value;
+  custom1.push(photo1, url1);
+  var photo2 = event.target.photo2.value;
+  var url2 = event.target.url2.value;
+  custom2.push(photo2, url2);
+  var photo3 = event.target.photo3.value;
+  var url3 = event.target.url3.value;
+  custom3.push(photo3, url3);
+  customItemInfo.push(custom1, custom2, custom3);
+  makeGameArray(customItemInfo);
+  renderCustomImages();
+};
+
+var appendImages = document.getElementById('append-images');
+
+function renderCustomImages() {
+  customInput.setAttribute('hidden', 'hidden');
+  for (var i = 0; i < customItemInfo.length; i ++) {
+    var singleImage = document.createElement('div');
+    singleImage.innerHTML = '<img src ="' + customItemInfo[i][1] + '">';
+    singleImage.id = i;
+    appendImages.appendChild(singleImage);
+  }
+}
