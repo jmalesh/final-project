@@ -1,4 +1,4 @@
-//local storage
+//getting info from the local storage
 var allUsersArray = [];
 (function getUserNameFromLocalStorage () {
   if(localStorage.userName){
@@ -21,12 +21,7 @@ var allUsersArray = [];
 function UserProfile(nameInput, userScore) {
   this.userName = nameInput;
   this.userScore = userScore;
-  // allUsersArray.push(this);
 }
-// UserProfile.prototype.highScore = function(){
-//   .userScore = userWins * 1000 / initialNumberOfRounds;
-// };
-
 var itemArray = new Array(3);
 var classicItemInfo = [['rock', '../assets/rock.jpeg'],
                 ['paper', '../assets/paper.jpeg'],
