@@ -35,6 +35,29 @@ body {
     margin: 0 auto;
 }
 
+/*******************************SEPARATOR**************************************/
+.separator {
+    background-size: cover;
+    color: #eee6d2;
+    padding: 30px;
+}
+
+.image-one {
+  background: #002041 url('https://femmebot.github.io/google-type/images/the-boy-bathing/bg-sm.jpg') no-repeat center center fixed;
+  height: 1000px;
+  width: 720px;
+}
+
+.image-two {
+  background: #002041 url('http://femmebot.github.io/google-type/images/bg-wolf-sheep-ram.png') no-repeat center center fixed;
+  height: 1000px;
+}
+
+.image-three {
+  background: #002041 url('http://femmebot.github.io/google-type/images/hound.jpg') no-repeat center center fixed;
+  height: 1000px;
+}
+
 /*******************************CLASSIC SECTION*******************************/
 .section-classic {
   background: url('https://i.ytimg.com/vi/UYxpX3N20qU/maxresdefault.jpg') no-repeat center;
