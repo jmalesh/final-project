@@ -3,18 +3,37 @@ body {
 }
 
 .intro {
-  background: darkblue no-repeat;
+  background: #212221 no-repeat;
+  display: flex;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
-  height: 700px;
+  height: 500px;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  display: flex;
+  align-items: center;
+}
+
+.about-us-heading {
+  border-top: solid 10px;
+  border-bottom: solid 10px;
+  font-size: 75px;
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+.about-us-description {
+  width: 750px;
+  margin-left: 10px;
+  margin-right: 50px;
 }
 
 .first {
-  background: url('Img/abiqua.jpg') no-repeat center center fixed;
+  background: url('Img/paper-cut-out.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 700px;
-    padding: 50px;
+  height: 500px;
+  padding: 50px;
 }
 
 .second {
@@ -28,8 +47,8 @@ body {
 .third {
   background: url('Img/glide.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 700px;
-    padding: 50px;
+  height: 500px;
+  padding: 50px;
 }
 
 .fourth {
