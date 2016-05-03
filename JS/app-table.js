@@ -1,3 +1,32 @@
+//local storage
+var allUsersArray = [];
+(function getUserNameFromLocalStorage () {
+  if(localStorage.userName){
+    console.log('localStorage for userName exist');
+    userName = JSON.parse(localStorage.userName);
+  }else{
+    console.log('localStorage for userName doesn\'t exist');
+  };
+})();
+
+(function getAllUsersArrayFromLocalStorage () {
+  if(localStorage.allUsersArray){
+    console.log('localStorage for uallUsersArray exist');
+    allUsersArray = JSON.parse(localStorage.allUsersArray);
+  }else{
+    console.log('localStorage for allUsersArray doesn\'t exist');
+  };
+})();
+
+function UserProfile(nameInput, userScore) {
+  this.userName = nameInput;
+  this.userScore = userScore;
+  // allUsersArray.push(this);
+}
+// UserProfile.prototype.highScore = function(){
+//   .userScore = userWins * 1000 / initialNumberOfRounds;
+// };
+
 var itemArray = new Array(3);
 var classicItemInfo = [['rock', '../assets/rock.jpeg'],
                 ['paper', '../assets/paper.jpeg'],
@@ -108,10 +137,6 @@ function displayResult() {
   buttonDisplay.removeAttribute('hidden');
 }
 
-function highScore() {
-  var score = userWins * 1000 / initialNumberOfRounds;
-}
-
 var scoreTable = document.getElementById('score-table');
 //table header
 function tableHeader(){
@@ -125,18 +150,10 @@ function tableHeader(){
   scoreTable.appendChild(tr);
 }
 
-var allUsersArray = [];
-
-function UserProfile(userName) {
-  this.userName = userName;
-  this.userScore = 0;
-  allUsersArray.push(this);
-}
-
-var Jam = new UserProfile('Jam', 5);
-var Vien = new UserProfile('Vien', 7);
-var Jeremy = new UserProfile('Jeremy', 2);
-var Tatiana = new UserProfile('Tatiana', 3);
+// var Jam = new UserProfile('Jam', 5);
+// var Vien = new UserProfile('Vien', 7);
+// var Jeremy = new UserProfile('Jeremy', 2);
+// var Tatiana = new UserProfile('Tatiana', 3);
 
 // var userProfile = [];
 //rendering scores
@@ -147,10 +164,13 @@ function sortAllUserArray(objectArray){
   };
   return objectArray.sort(byUserScore);
 }
-
+var newUser;
 function renderScore() {
-
+  var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
+  newUser = new UserProfile(userName, highScore);
+  allUsersArray.push(newUser);
   sortAllUserArray(allUsersArray);
+  localStorage.setItem('allUsersArray', JSON.stringify(allUsersArray));
   tableHeader();
 
   for(var i = 0; i < allUsersArray.length; i++){
@@ -166,7 +186,15 @@ function renderScore() {
     scoreTable.appendChild(tr);
   }
 }
-renderScore();
+var button2 = document.getElementById('button2');
+button2.addEventListener('click', renderScore);
+
+var button3 = document.getElementById('button3');
+button3.addEventListener('click', function(){
+  // localStorage.allUsersArray = '';
+  localStorage.clear();
+  scoreTable.textContent = '';
+});
 
 // function reportOneRound() {
 //   var oneRoundReport = document.createElement('div');
@@ -180,16 +208,6 @@ renderScore();
 //   }
 //   interactionPanel.appendChild(oneRoundReport);
 // }
-
-//local storage
-// (function getDataFromLocalStorage () {
-//   if(localStorage.allItemsArrayData){
-//     console.log('localStorage for allItemsArrayData exist');
-//     allItemsArray = JSON.parse(localStorage.allItemsArrayData);
-//   }else{
-//     console.log('localStorage for allItemsArrayData doesn\'t exist');
-//   };
-// })();
 
 //table
 // function displayHeader() {
