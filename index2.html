@@ -4,10 +4,12 @@
   <head>
     <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="CSS/style2.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fanwood+Text' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Amiri' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -23,16 +25,22 @@
     </div>
 
     <div class="container-fluid section-separator-classic">
-      <div class="container">
     </div>
 
     <div class="container-fluid section-classic">
       <div class="container">
-        <h2>Classical<br>Rock, Paper, Scissor</h2>
-        <div class="classic-body" id="classic-body">
-          <p class="hidden" id="classic-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <div class="title-container">
+          <h2>Classical<br>Rock, Paper, Scissor</h2>
+        </div>
+        <div class="hidden" class="classic-body" id="classic-body">
+          <p class="classic-description" id="classic-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
+
+        <div class="hidden" class="play-button-container">
+          <button id="classic-play-button" class="classic-play-button">PLAY</button>
+        </div>
+
         <div id="classic-user-interaction-panel" class="classic-user-interaction-panel">
           <div id="0">
             <img src="assets/rock.png"/>
@@ -43,11 +51,13 @@
           <div id="2">
           <img src="assets/scissor.png"/>              </div>
         </div>
-        <div id="classic-round-result-container">
+        <div class="classic-round-result-container" id="classic-round-result-container">
         </div>
       </div>
     </div>
 
+    <div class="container-fluid section-separator-tas">
+    </div>
 
     <div class="container-fluid section-tas">
       <div class="container">
