@@ -166,24 +166,26 @@ function sortAllUserArray(objectArray){
 }
 var newUser;
 function renderScore() {
-  var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
-  newUser = new UserProfile(userName, highScore);
-  allUsersArray.push(newUser);
-  sortAllUserArray(allUsersArray);
-  localStorage.setItem('allUsersArray', JSON.stringify(allUsersArray));
-  tableHeader();
-
-  for(var i = 0; i < allUsersArray.length; i++){
-    var tr = document.createElement('tr');
-    var td = document.createElement('td');
-    td.textContent = allUsersArray[i].userName;
-    console.log(allUsersArray[i].userName);
-    tr.appendChild(td);
-    var td = document.createElement('td');
-    td.textContent = allUsersArray[i].userScore;
-    console.log(allUsersArray[i].userScore);
-    tr.appendChild(td);
-    scoreTable.appendChild(tr);
+  if(scoreTable.textContent === ''){
+    var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
+    newUser = new UserProfile(userName, highScore);
+    allUsersArray.push(newUser);
+    sortAllUserArray(allUsersArray);
+    localStorage.setItem('allUsersArray', JSON.stringify(allUsersArray));
+    tableHeader();
+//render table
+    for(var i = 0; i < allUsersArray.length; i++){
+      var tr = document.createElement('tr');
+      var td = document.createElement('td');
+      td.textContent = allUsersArray[i].userName;
+      console.log(allUsersArray[i].userName);
+      tr.appendChild(td);
+      var td = document.createElement('td');
+      td.textContent = allUsersArray[i].userScore;
+      console.log(allUsersArray[i].userScore);
+      tr.appendChild(td);
+      scoreTable.appendChild(tr);
+    }
   }
 }
 var button2 = document.getElementById('button2');
