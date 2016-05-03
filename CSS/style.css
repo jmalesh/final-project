@@ -4,7 +4,7 @@
 }
 
 .background {
-  background: url('../Img/IMG_2632.JPG') no-repeat 25% 25% fixed;
+  background: url('Img/IMG_2632.JPG') no-repeat 25% 25% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,4 +16,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none;
 }
