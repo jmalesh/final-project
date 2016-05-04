@@ -25,6 +25,7 @@ function handleUserName(event){
   var beginGame = document.getElementById('beginGame');
   beginGame.classList.remove('hidden');
   userInput.classList.add('hidden');
+  event.target.userName.value = null;
 }
 
 var userInput = document.getElementById('user-input');

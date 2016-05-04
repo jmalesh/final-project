@@ -290,32 +290,33 @@ function displayResult() {
     console.log('done');
     console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
   }
-  var buttonDisplay = document.getElementById('button-display');
-  buttonDisplay.removeAttribute('hidden');
+  var buttonDisplay = document.createElement('div');
+  buttonDisplay.id = 'button-display';
+  var button1 = document.createElement('button');
+  button1.id = 'button1';
+  button1.textContent = 'Play again';
+  var button2 = document.createElement('button');
+  button2.id = 'button2';
+  button2.textContent = 'Leader Board';
+  var button3 = document.createElement('button');
+  button3.id = 'button3';
+  button3.textContent = 'Clear Leader Board';
+  
   resultContainer.appendChild(p);
+  buttonDisplay.appendChild(button1);
+  buttonDisplay.appendChild(button2);
+  buttonDisplay.appendChild(button3);
+  resultContainer.appendChild(buttonDisplay);
+
+  var button2response = document.getElementById('button2');
+  button2response.addEventListener('click', renderScore);
+
+  var button3response = document.getElementById('button3');
+  button3response.addEventListener('click', function(){
+    localStorage.clear();
+    scoreTable.textContent = '';
+  });
 }
-
-  // var math = (userWins / initialNumberOfRounds) * 100;
-  // var gameWinner = document.getElementById('game-winner');
-  // var roundWinner = document.getElementById('round-winner');
-  // var interactionPanel = document.getElementById('interaction-panel');
-  // gameWinner.removeAttribute('hidden');
-  // roundWinner.setAttribute('hidden', 'hidden');
-  // interactionPanel.setAttribute('hidden', 'hidden');
-  // var p = document.getElementById('game-message');
-  // if (math >= 50) {
-  //   p.textContent = 'Congratulations! You are the winner!';
-  //   console.log('done');
-  //   console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
-  // } else {
-  //   p.textContent = 'You lost!';
-  //   console.log('done');
-  //   console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
-  // }
-  // var buttonDisplay = document.getElementById('button-display');
-  // buttonDisplay.removeAttribute('hidden');
-//}
-
 //TATIANA'S addEventListenerfunction displayResult()
 
 var scoreTable = document.getElementById('score-table');
@@ -341,6 +342,7 @@ function sortAllUserArray(objectArray){
   return objectArray.sort(byUserScore);
 }
 var newUser;
+
 function renderScore() {
   if(scoreTable.textContent === ''){
     var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
@@ -361,18 +363,10 @@ function renderScore() {
       console.log(allUsersArray[i].userScore);
       tr.appendChild(td);
       scoreTable.appendChild(tr);
+      window.location.href = '#score-table';
     }
   }
 }
-var button2 = document.getElementById('button2');
-button2.addEventListener('click', renderScore);
-
-var button3 = document.getElementById('button3');
-button3.addEventListener('click', function(){
-  // localStorage.allUsersArray = '';
-  localStorage.clear();
-  scoreTable.textContent = '';
-});
 
 var userInputContainer = document.getElementById('user-input-container');
 userInputContainer.addEventListener('click', processUserSelection);
