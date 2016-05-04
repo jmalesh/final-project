@@ -26,10 +26,6 @@ body {
     zoom: 1;
 }
 
-.hidden {
-  display: none;
-}
-
 .container {
     width: 960px;
     margin: 0 auto;
@@ -47,6 +43,7 @@ body {
 .section-intro>.container {
   width: 100%;
   max-width: 1280px;
+  min-width: 900px;
   height: 720px;
   display: flex;
   flex-direction: row;
@@ -56,7 +53,8 @@ body {
 
 .section-intro .title-container {
   text-align: left;
-  max-width: 500px;
+  max-width: 600px;
+  min-width: 600px;
   overflow: hidden;
   word-wrap: normal;
   margin: 0;
@@ -74,11 +72,12 @@ body {
   margin: 0;
 }
 
-.section-intro .p-container {
+.section-intro .text-container {
   text-align: justify;
   width: 500px;
+  min-width: 300px;
   word-wrap: normal;
-  margin: 0 0 100px 0;
+  margin: 0 100px 100px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,7 +105,7 @@ body {
 
 /*******************************CLASSIC SECTION*******************************/
 .section-classic {
-  background-color: black;
+  background-color: white;
   height: 720px;
   overflow: hidden;
 }
@@ -119,23 +118,23 @@ body {
 
 .section-classic h2 {
   font: 400 76px/80px 'Oswald', sans-serif;
-  color: #fff;
+  color: black;
   letter-spacing: .02em;
   text-align: left;
   margin: 90px 0 40px 0;
   text-transform: uppercase;
 }
 
-.section-classic p {
-  font: 17px/30px 'Amiri', serif;
-  color: #fff;
-}
-
-.section-classic .classic-description {
+.section-classic .text-container {
   text-align: justify;
   letter-spacing: .05em;
   margin: 60px auto 60px auto;
   max-width: 600px;
+}
+
+.section-classic p {
+  font: 17px/30px 'Amiri', serif;
+  color: black;
 }
 
 .classic-user-interaction-panel {
@@ -179,7 +178,7 @@ body {
   color: white;
   text-align: center;
   font: 17px/30px 'Amiri', serif;
-  color: #fff;
+  color: black;
   /*font-weight: 600;*/
   line-height: 38px;
   letter-spacing: .1rem;
@@ -188,8 +187,8 @@ body {
   white-space: nowrap;
   background-color: transparent;
   border-radius: 0px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   border-right: none;
   border-left: none;
   cursor: pointer;
@@ -198,11 +197,11 @@ body {
 
 .section-classic button:hover {
   color: #c31;
-  border-color: white;
+  border-color: black;
   outline: 0;
 }
 
-/*******************************CLASSIC SEPARATOR*******************************/
+/*******************************TA SEPARATOR*******************************/
 .section-separator-tas {
   background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
   background-size: cover;
@@ -212,27 +211,59 @@ body {
 
 /*******************************TA SECTION*******************************/
 .section-tas {
-  background: #002041 url('https://femmebot.github.io/google-type/images/the-boy-bathing/bg-sm.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #eee6d2;
-  padding: 30px;
+  background-color: black;
+  /*background-size: cover;*/
+  color: white;
+  /*padding: 30px;*/
+  height: 720px;
   /*height: 700px;*/
 }
 
-.section-the-boy-bathing .container h2 {
+.section-tas .container h2 {
     font: 46px/52px 'Quando', sans-serif;
     font-weight: 300;
     margin-bottom: 20px;
 }
 
-.section-the-boy-bathing p {
-    font: 20px/28px 'Judson', sans-serif;
+.section-tas p {
     font-weight: 300;
     margin-bottom: 26px;
 }
 
-
-.custom-game {
+.tas-user-interaction-panel {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  width: auto;
+  justify-content: center;
 }
+
+.tas-user-interaction-panel img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.tas-user-interaction-panel div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+
+/*******************************CUSTOM SEPARATOR*******************************/
+.section-separator-custom {
+  background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
+  background-size: cover;
+  min-width: 720px;
+  height: 450px;
+}
+
+/*******************************CUSTOM SECTION*******************************/
+.section-custom {
+  background-color: black;
+  height: 720px;
+  color: white;
+}
+
+/*******************************EXTRAS*******************************/
+
+*[hidden] { display: none; }
