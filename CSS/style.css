@@ -1,21 +1,15 @@
-
-
-.background {
-  background: url('Img/IMG_2632.JPG') no-repeat 25% 25% fixed;
-  background-size: cover;
+body {
+  background: url('Img/bridge.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .logo-userName {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-self: flex-start;
 }
 
 div.hidden {
@@ -23,9 +17,11 @@ div.hidden {
 }
 
 h1 {
-  font-family: 'Allura', cursive;
-  border-top: 4px solid black;
-  border-bottom: 4px solid black;
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  font-size: 35px;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
   margin-bottom: 15px;
 }
 
@@ -34,8 +30,9 @@ h1 {
 h5 {
   display: flex;
   justify-content: center;
-  font-family: 'Allura', cursive;
-  font-size: 16px;
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  font-size: 25px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -50,12 +47,13 @@ div.logo {
 div.userName {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .beginGamer {
   /*display: hidden;*/
-  margin-left: 25%;
+  margin-left: 45%;
   /*justify-content: space-between;*/
   margin-top: 15px;
 }
