@@ -301,7 +301,7 @@ function displayResult() {
   var button3 = document.createElement('button');
   button3.id = 'button3';
   button3.textContent = 'Clear Leader Board';
-  
+
   resultContainer.appendChild(p);
   buttonDisplay.appendChild(button1);
   buttonDisplay.appendChild(button2);
@@ -395,6 +395,7 @@ function handleCustomInput(event) {
   renderCustomImages();
 };
 
+//Tatiana & Jam's code for the custom game
 var appendImages = document.getElementById('append-images');
 
 function renderCustomImages() {
