@@ -53,37 +53,47 @@ body {
 }
 
 .first {
-  background: url('Img/bridge.jpg') no-repeat;
+  font-family: 'Jura', sans-serif;
+  background: #9E4306 no-repeat;
+  color: white;
+  background-size: cover;
+  padding: 50px;
+
+}
+
+.second {
+  background: url('Img/scissor.jpg') no-repeat center center fixed;
   color: white;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
   padding: 50px;
 }
-.second {
-  background: #212221 no-repeat center center fixed;
-  color: #123675;
-  font-size: 20px;
+
+.third {
+  font-family: 'Muli', sans-serif;
+  background:white no-repeat;
   background-size: cover;
+  padding: 50px;
+  color: #123675;
   padding: 50px;
 }
 
-.third {
-  background: url('Img/glide.jpg') no-repeat;
+.third h1 {
+  font-size: 50px;
+    color: #69161B;
+}
+
+.third p {
+  color: #737575;
+}
+
+.fourth {
+  background: url('Img/glide.jpg') center center fixed;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
   color: #7D8085;
-  font-size: 20px;
-  padding: 50px;
-}
-
-.fourth {
-  background:white no-repeat center center fixed;
-  background-size: cover;
-  padding: 50px;
-  color: #123675;
-  font-size: 20px;
   padding: 50px;
 }
 
