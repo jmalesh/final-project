@@ -10,19 +10,37 @@ body {
   overflow: hidden;
   height: 500px;
   color: #202757;
-  /*color: #45430E;*/
   font-weight: bold;
   font-family: 'Roboto Slab', serif;
   display: flex;
   align-items: center;
 }
 
+.dropdown {
+    position: fixed;
+    right: 50px;
+    top: 20px;
+}
+
+.drop-down-icon {
+  height: 50px;
+  width: 50px;
+  background: #5C5D5E;
+  border-radius: 10px;
+}
+
 .dropdown ul {
   display: none;
+
 }
 
 .dropdown:hover ul {
-  display: block;
+list-style: none;
+display: list-item;
+}
+
+.dropdown li {
+  text-align: right;
 }
 
 .about-us-heading {
@@ -63,13 +81,17 @@ body {
 
 .first {
   font-family: 'Quattrocento', serif;
-  background: #9E4306 no-repeat;
-  color: black;
+  background: #273F4A no-repeat;
   background-size: cover;
   padding: 50px;
 }
 
 .first h1 {
+  color: #D16F19;
+  font-size: 40px;
+}
+
+.first p {
   color: white;
 }
 
@@ -90,20 +112,19 @@ body {
 
 .third {
   font-family: 'Muli', sans-serif;
-  background: #D4CFD1 no-repeat;
+  background: #DBDAE0 no-repeat;
   background-size: cover;
   padding: 50px;
-  color: #123675;
   padding: 50px;
 }
 
 .third h1 {
   font-size: 50px;
-    color: #69161B;
+    color: #8F1313;
 }
 
 .third p {
-  color: #737575;
+  color: #68676B;
 }
 
 .fourth {
@@ -111,13 +132,16 @@ body {
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
-  color: #050A99;
+  color: white;
   padding: 50px;
   font-weight: bold;
   font-family: 'Jura', sans-serif;
 
 }
 
+.fourth h1 {
+  font-size: 50px;
+}
 .fourth p {
   font-size: 20px;
 }
