@@ -13,7 +13,6 @@ var userWins = 0;
 var rounds = 7;
 var initialNumberOfRounds = 7;
 
-
 var classicTextContainer = document.getElementById('classic-text-container');
 var classicText = document.getElementById('classic-text');
 
@@ -32,7 +31,6 @@ var tasPlayButtonContainer = document.getElementById('tas-play-button-container'
 var customPlayButton = document.getElementById('custom-play-button');
 var customPlayButtonContainer = document.getElementById('custom-play-button-container');
 
-
 classicPlayButton.addEventListener('click', classicPlay);
 tasPlayButton.addEventListener('click', tasPlay);
 customPlayButton.addEventListener('click', customPlay);
@@ -41,12 +39,41 @@ var classicUserInteractionPanelContainer = document.getElementById('classic-user
 var tasUserInteractionPanelContainer = document.getElementById('tas-user-interaction-panel-container');
 var customUserInteractionPanelContainer = document.getElementById('custom-user-interaction-panel-container');
 
-var classicResultContainer = document.getElementById('classic-round-result-container');
+var userInteractionPanel;
+var resultContainer;
+
+function createBestOfSelector(section) {
+  var boSelectorContainer = document.getElementById(section + '-bo-selector-container');
+
+  var header = document.createElement('h1');
+  header.textContent = 'Best Of';
+  boSelectorContainer.appendChild(header);
+
+  var form = document.createElement('form');
+  form.className = "bo-selector-form";
+
+  for (var i = 0; i < 4; i++) {
+    var fieldSet = document.createElement('fieldset');
+    var input = document.createElement('input');
+    input.name = 'numbers';
+    input.type = 'radio';
+    input.value = i;
+    input.id = 'bo' + i;
+    // input.textContent = i;
+    fieldSet.appendChild(input);
+    var label = document.createElement('label');
+    label.setAttribute('for', ('bo' + i));
+    label.textContent = i;
+    fieldSet.appendChild(label);
+    form.appendChild(fieldSet);
+  }
+  boSelectorContainer.appendChild(form);
+}
 
 function createClassicInteractionPanel() {
-  var userInteractionPanel = document.createElement('div');
-  userInteractionPanel.className = 'classic-user-interaction-panel';
-  userInteractionPanel.id = 'classic-user-interaction-panel';
+  var tempInteractionPanel = document.createElement('div');
+  tempInteractionPanel.className = 'classic-user-interaction-panel';
+  tempInteractionPanel.id = 'classic-user-interaction-panel';
 
   for (var i = 0; i < 3; i++) {
     var imgDiv = document.createElement('div');
@@ -54,17 +81,18 @@ function createClassicInteractionPanel() {
     var img = document.createElement('img');
     img.src = itemArray[i].url;
     imgDiv.appendChild(img);
-    userInteractionPanel.appendChild(imgDiv);
+    tempInteractionPanel.appendChild(imgDiv);
   }
 
-  userInteractionPanel.addEventListener('click', processUserSelection);
-  classicUserInteractionPanelContainer.appendChild(userInteractionPanel);
+  tempInteractionPanel.addEventListener('click', processUserSelection);
+  classicUserInteractionPanelContainer.appendChild(tempInteractionPanel);
+  createBestOfSelector('classic');
 }
 
 function createTasInteractionPanel() {
-  var userInteractionPanel = document.createElement('div');
-  userInteractionPanel.className = 'tas-user-interaction-panel';
-  userInteractionPanel.id = 'tas-user-interaction-panel';
+  var tempInteractionPanel = document.createElement('div');
+  tempInteractionPanel.className = 'tas-user-interaction-panel';
+  tempInteractionPanel.id = 'tas-user-interaction-panel';
 
   for (var i = 0; i < 3; i++) {
     var imgDiv = document.createElement('div');
@@ -72,14 +100,15 @@ function createTasInteractionPanel() {
     var img = document.createElement('img');
     img.src = itemArray[i].url;
     imgDiv.appendChild(img);
-    userInteractionPanel.appendChild(imgDiv);
+    tempInteractionPanel.appendChild(imgDiv);
   }
-  userInteractionPanel.addEventListener('click', processUserSelection);
-  tasUserInteractionPanelContainer.appendChild(userInteractionPanel);
+  tempInteractionPanel.addEventListener('click', processUserSelection);
+  tasUserInteractionPanelContainer.appendChild(tempInteractionPanel);
+  createBestOfSelector('tas');
 }
 
 function createCustomInteractionPanel() {
-  var userInteractionPanel = document.createElement('div');
+  var tempInteractionPanel = document.createElement('div');
   userInteractionPanel.className = 'custom-user-interaction-panel';
   userInteractionPanel.id = 'custom-user-interaction-panel';
 
@@ -91,8 +120,9 @@ function createCustomInteractionPanel() {
     imgDiv.appendChild(img);
     userInteractionPanel.appendChild(imgDiv);
   }
-  userInteractionPanel.addEventListener('click', processUserSelection);
-  customUserInteractionPanelContainer.appendChild(userInteractionPanel);
+  tempInteractionPanel.addEventListener('click', processUserSelection);
+  customUserInteractionPanelContainer.appendChild(tempInteractionPanel);
+  createBestOfSelector('custom');
 }
 
 function classicPlay() {
@@ -103,8 +133,12 @@ function classicPlay() {
     classicPlayButtonContainer.removeChild(classicPlayButtonContainer.firstChild);
   }
   makeGameArray(classicItemInfo);
-
   createClassicInteractionPanel();
+  userWins = 0;
+  rounds = 7;
+
+  userInteractionPanel = classicUserInteractionPanelContainer;
+  resultContainer = document.getElementById('classic-round-result-container');
 }
 
 function tasPlay() {
@@ -116,6 +150,11 @@ function tasPlay() {
   }
   makeGameArray(tasItemInfo);
   createTasInteractionPanel();
+  userWins = 0;
+  rounds = 7;
+
+  userInteractionPanel = tasUserInteractionPanelContainer;
+  resultContainer = document.getElementById('tas-round-result-container');
 }
 
 function customPlay(event) {
@@ -167,25 +206,16 @@ function makeGameArray(inputInfo) {
     itemArray[j].setBeat(itemArray[j - 1]);
   }
 }
-// populate array with classic items
-// makeGameArray(classicItemInfo);
 
-
-//generate random number for computer choice
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-// getRandomInt(arrayItem.length);
 
-// 0 = draw
-// -1 = user lost
-// 1 = user win
 function oneRound(userInput) {
   var computerInput = itemArray[getRandomInt(itemArray.length)];
   console.log('comp input is ' + computerInput.name);
   var roundWinner = document.createElement('p');
-  // roundWinner.removeAttribute('hidden');
-  // var p = document.getElementById('round-message');
+
   if (userInput.beat === computerInput.beat) {
     roundWinner.appendChild(document.createTextNode('Tie'));
   } else if (userInput.beat === computerInput) {
@@ -197,27 +227,9 @@ function oneRound(userInput) {
   while (resultContainer.firstChild) {
     resultContainer.removeChild(resultContainer.firstChild);
   }
-  userInteractionPanel.removeEventListener('click', processUserSelection);
+  // userInteractionPanel.removeEventListener('click', processUserSelection);
   resultContainer.appendChild(roundWinner);
-  resultContainer.appendChild(continueButton);
-}
-
-
-
-// console.log(oneRound(itemArray[0]));
-
-
-
-var continueButton = document.createElement('button');
-continueButton.textContent = 'Continue';
-continueButton.style.margin = '5px';
-continueButton.addEventListener('click', continueGame);
-
-function continueGame() {
-  userInteractionPanel.addEventListener('click', processUserSelection);
-  while (resultContainer.firstChild) {
-    resultContainer.removeChild(resultContainer.firstChild);
-  }
+  // resultContainer.appendChild(continueButton);
 }
 
 // var userInputContainer = document.getElementById('user-input-container');
@@ -240,14 +252,8 @@ function processUserSelection(event) {
 
 function displayResult() {
   var math = (userWins / initialNumberOfRounds) * 100;
-  var gameWinner = document.getElementById('game-winner');
-  var roundWinner = document.getElementById('round-winner');
-  var interactionPanel = document.getElementById('interaction-panel');
-  gameWinner.removeAttribute('hidden');
-  roundWinner.setAttribute('hidden', 'hidden');
-  interactionPanel.setAttribute('hidden', 'hidden');
-  var p = document.getElementById('game-message');
-  if (math >= 60) {
+  var p = document.createElement('p');
+  if (math >= 50) {
     p.textContent = 'Congratulations! You are the winner!';
     console.log('done');
     console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
@@ -256,21 +262,25 @@ function displayResult() {
     console.log('done');
     console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
   }
-  var buttonDisplay = document.getElementById('button-display');
-  buttonDisplay.removeAttribute('hidden');
+  resultContainer.appendChild(p);
+
+  // var math = (userWins / initialNumberOfRounds) * 100;
+  // var gameWinner = document.getElementById('game-winner');
+  // var roundWinner = document.getElementById('round-winner');
+  // var interactionPanel = document.getElementById('interaction-panel');
+  // gameWinner.removeAttribute('hidden');
+  // roundWinner.setAttribute('hidden', 'hidden');
+  // interactionPanel.setAttribute('hidden', 'hidden');
+  // var p = document.getElementById('game-message');
+  // if (math >= 50) {
+  //   p.textContent = 'Congratulations! You are the winner!';
+  //   console.log('done');
+  //   console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
+  // } else {
+  //   p.textContent = 'You lost!';
+  //   console.log('done');
+  //   console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
+  // }
+  // var buttonDisplay = document.getElementById('button-display');
+  // buttonDisplay.removeAttribute('hidden');
 }
-
-
-
-// function reportOneRound() {
-//   var oneRoundReport = document.createElement('div');
-//   var computerChoice = document.createElement('img');
-//   computerChoice.src = 'assets/paper.jpeg';
-//   var text = document.createTextNode('computer chose ');
-//   oneRoundReport.appendChild(text);
-//   oneRoundReport.appendChild(computerChoice);
-//   while (interactionPanel.firstChild) {
-//     interactionPanel.removeChild(interactionPanel.firstChild);
-//   }
-//   interactionPanel.appendChild(oneRoundReport);
-// }
