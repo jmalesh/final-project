@@ -13,17 +13,20 @@
   </head>
 
   <body>
+
+    <!---INTRO SECTION-->
     <div class="container-fluid section-intro">
       <div class="container">
         <div class="title-container">
-          <h2>ROCK PAPER SCISSOR</h2>
+          <h2>ROCK PAPER SCISSORS</h2>
         </div>
-        <div class="p-container">
+        <div class="text-container">
           <p>An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it. But the Serpent was too quick for him and had its coils round him in a moment; and then there ensued a life-and-death struggle between the two. A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape. In revenge the Serpent spat some of his poison into the man's drinking-horn. Heated with his exertions, the man was about to slake his thirst with a draught from the horn, when the Eagle knocked it out of his hand, and spilled its contents upon the ground.</p>
         </div>
       </div>
     </div>
 
+    <!---CLASSIC SECTION-->
     <div class="container-fluid section-separator-classic">
     </div>
 
@@ -32,30 +35,25 @@
         <div class="title-container">
           <h2>Classical<br>Rock, Paper, Scissor</h2>
         </div>
-        <div class="hidden" class="classic-body" id="classic-body">
-          <p class="classic-description" id="classic-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <div class="text-container" id="classic-text-container">
+          <p id="classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
 
-        <div class="hidden" class="play-button-container">
-          <button id="classic-play-button" class="classic-play-button">PLAY</button>
+        <div id="classic-play-button-container" class="play-button-container">
+          <button id="classic-play-button" class="play-button">PLAY</button>
         </div>
 
-        <div id="classic-user-interaction-panel" class="classic-user-interaction-panel">
-          <div id="0">
-            <img src="assets/rock.png"/>
-          </div>
-          <div id="1">
-            <img src="assets/paper.png"/>
-          </div>
-          <div id="2">
-          <img src="assets/scissor.png"/>              </div>
+        <div id="classic-user-interaction-panel-container" class="classic-user-interaction-panel-container">
         </div>
+
         <div class="classic-round-result-container" id="classic-round-result-container">
         </div>
+
       </div>
     </div>
 
+    <!---TAS SECTION-->
     <div class="container-fluid section-separator-tas">
     </div>
 
@@ -64,40 +62,72 @@
         <div class="title-container">
           <h2>TA-themed<br>Rock, Paper, Scissor</h2>
         </div>
-        <div class="classic-interaction-container">
-          <p id="hello">Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
+        <div class="text-container" id="tas-text-container">
+          <p id="tas-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
+
+        <div id="tas-play-button-container" class="play-button-container">
+          <button id="tas-play-button" class="play-button">PLAY</button>
+        </div>
+
+        <div class="tas-user-interaction-panel-container" id="tas-user-interaction-panel-container">
+        </div>
+
+        <div class="tas-round-result-container" id="tas-round-result-container">
+        </div>
+
       </div>
     </div>
 
-    <div class="custom-game">
+    <!---CUSTOM SECTION-->
+    <div class="container-fluid section-separator-custom">
+    </div>
+
+    <div class="container-fluid section-custom">
       <div class="container">
-        <h2>Classical<br>Rock, Paper, Scissor</h2>
-        <div class="classic-interaction-container">
-          <p id="hello">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <div class="title-container">
+          <h2>Custom<br>Rock, Paper, Scissor</h2>
+        </div>
+        <div class="text-container" id="custom-text-container">
+          <p id="custom-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
-      </div>
 
-      <form id="custom-game-input" hidden>
-        <fieldset>
-          <legend>Hello</legend>
-          <div class="item1">
-            <input name="item1-name" type="text" placeholder="item1-name">
-            <input name="item1-url" type="text" placeholder="item1-url">
+        <div id="custom-play-button-container" class="play-button-container">
+          <button id="custom-play-button" class="custom-button">PLAY</button>
+        </div>
+
+        <div class="custom-user-interaction-panel-container" id="custom-user-interaction-panel-container">
+          <div class="custom-form-container" id="custom-form-container">
+            <form id="custom-input">
+              <label>Enter Photo Name</label>
+              <input name="photo1" type="text">
+
+              <label>Enter Image URL</label>
+              <input name="url1" type="text">
+
+              <label>Enter Photo Name</label>
+              <input name="photo2" type="text">
+
+              <label>Enter Image URL</label>
+              <input name="url2" type="text">
+
+              <label>Enter Photo Name</label>
+              <input name="photo3" type="text">
+
+              <label>Enter Image URL</label>
+              <input name="url3" type="text">
+
+              <button type="submit" id="submit-custom">Submit</button>
+            </form>
           </div>
-          <div class="item2">
-            <input name="item2-name" type="text" placeholder="item2-name">
-            <input name="item2-url" type="text" placeholder="item2-url">
+
+          <div class="custom-image-container" id="user-input-container">
+            <!-- <div id="append-images"></div> -->
           </div>
-          <div class="item3">
-            <input name="item3-name" type="text" placeholder="item3-name">
-            <input name="itme3-url" type="text" placeholder="itme3-url">
-          </div>
-          <buttom type="submit" name="submit">Submit</button>
-        </fieldset>
-      </form>
+        </div>
+      </div>
     </div>
     <script src="JS/app.js"></script>
   </body>

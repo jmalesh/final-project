@@ -1,7 +1,9 @@
 var panel1 = document.getElementById('panel1');
+
 function handlePanel1() {
   makeGameArray(classicItemInfo);
 };
+
 panel1.addEventListener('click', handlePanel1);
 
 var panel2 = document.getElementById('panel2');
