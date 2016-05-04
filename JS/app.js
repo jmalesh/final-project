@@ -245,6 +245,9 @@ function processUserSelection(event) {
       rounds--;
     }
     if (rounds == 0) {
+      // while (resultContainer.firstChild) {
+      //   resultContainer.removeChild(resultContainer.firstChild);
+      // }
       displayResult();
     }
   }
@@ -258,7 +261,7 @@ function displayResult() {
     console.log('done');
     console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
   } else {
-    p.textContent = 'You lost!';
+    p.textContent = 'You lost! Won ' + userWins + ' out of ' + initialNumberOfRounds;
     console.log('done');
     console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
   }
