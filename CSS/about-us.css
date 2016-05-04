@@ -3,13 +3,14 @@ body {
 }
 
 .intro {
-  background: #212221 no-repeat;
+  background: url('Img/paper-cut-out.jpg') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
   height: 500px;
-  color: white;
+  color: #45430E;
+  font-weight: bold;
   font-family: 'Roboto Slab', serif;
   display: flex;
   align-items: center;
@@ -29,34 +30,61 @@ body {
   margin-right: 50px;
 }
 
-.first {
-  background: url('Img/paper-cut-out.jpg') no-repeat center center fixed;
-  background-size: cover;
-  height: 500px;
-  padding: 50px;
+.image {
+  width: 400px;
+  height: 400px;
 }
 
-.second {
-  background: maroon no-repeat;
+.image-right {
+    width: 400px;
+    height: 400px;
+    margin-left: 100px;
+}
+
+.image-left {
+    width: 400px;
+    height: 400px;
+    margin-right: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first {
+  background: url('Img/bridge.jpg') no-repeat;
+  color: white;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
-  height: 700px;
+  padding: 50px;
+}
+.second {
+  background: #212221 no-repeat center center fixed;
+  color: #123675;
+  font-size: 20px;
+  background-size: cover;
+  padding: 50px;
 }
 
 .third {
-  background: url('Img/glide.jpg') no-repeat center center fixed;
+  background: url('Img/glide.jpg') no-repeat;
   background-size: cover;
-  height: 500px;
+  padding: 50px 0 100px;
+  overflow: hidden;
+  color: #7D8085;
+  font-size: 20px;
   padding: 50px;
 }
 
 .fourth {
-  background: darkgreen no-repeat;
+  background:white no-repeat center center fixed;
   background-size: cover;
-  padding: 50px 0 100px;
-  overflow: hidden;
-  height: 700px;
+  padding: 50px;
+  color: #123675;
+  font-size: 20px;
+  padding: 50px;
 }
 
 p {
