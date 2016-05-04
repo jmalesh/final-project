@@ -3,13 +3,14 @@ body {
 }
 
 .intro {
-  background: #212221 no-repeat;
+  background: url('Img/paper-cut-out.jpg') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
   height: 500px;
-  color: white;
+  color: #45430E;
+  font-weight: bold;
   font-family: 'Roboto Slab', serif;
   display: flex;
   align-items: center;
@@ -29,34 +30,71 @@ body {
   margin-right: 50px;
 }
 
+.image {
+  width: 400px;
+  height: 400px;
+}
+
+.image-right {
+    width: 400px;
+    height: 400px;
+    margin-left: 100px;
+}
+
+.image-left {
+    width: 400px;
+    height: 400px;
+    margin-right: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .first {
-  background: url('Img/paper-cut-out.jpg') no-repeat center center fixed;
+  font-family: 'Jura', sans-serif;
+  background: #9E4306 no-repeat;
+  color: white;
   background-size: cover;
-  height: 500px;
   padding: 50px;
+
 }
 
 .second {
-  background: maroon no-repeat;
+  background: url('Img/scissor.jpg') no-repeat center center fixed;
+  color: white;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
-  height: 700px;
-}
-
-.third {
-  background: url('Img/glide.jpg') no-repeat center center fixed;
-  background-size: cover;
-  height: 500px;
   padding: 50px;
 }
 
+.third {
+  font-family: 'Muli', sans-serif;
+  background:white no-repeat;
+  background-size: cover;
+  padding: 50px;
+  color: #123675;
+  padding: 50px;
+}
+
+.third h1 {
+  font-size: 50px;
+    color: #69161B;
+}
+
+.third p {
+  color: #737575;
+}
+
 .fourth {
-  background: darkgreen no-repeat;
+  background: url('Img/glide.jpg') center center fixed;
   background-size: cover;
   padding: 50px 0 100px;
   overflow: hidden;
-  height: 700px;
+  color: #7D8085;
+  padding: 50px;
 }
 
 p {
