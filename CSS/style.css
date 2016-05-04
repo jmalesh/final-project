@@ -9,10 +9,10 @@ body {
 .logo-userName {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self:center;
 }
 
-div.hidden {
+.hidden {
   display: none;
 }
 
@@ -25,8 +25,6 @@ h1 {
   margin-bottom: 15px;
 }
 
-
-
 h5 {
   display: flex;
   justify-content: center;
@@ -36,7 +34,6 @@ h5 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-
 
 div.logo {
   display: flex;
@@ -51,11 +48,15 @@ div.userName {
   margin-bottom: 10px;
 }
 
+div.aboutUs {
+  display: flex;
+  justify-content: center;
+  margin-top: 350px;
+  margin-bottom: 10px;
+}
+
 .beginGamer {
-  /*display: hidden;*/
   margin-left: 45%;
-  /*justify-content: space-between;*/
-  margin-top: 15px;
 }
 
 button {
