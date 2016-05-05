@@ -1,3 +1,6 @@
+// TODO: PLAY AGAIN BUTTON, return other sections to their original state when pressing on other play buttons in other sections
+
+
 var newUser;
 var allUsersArray = [];
 var scoreTable = document.getElementById('score-table');
@@ -131,15 +134,17 @@ function createBestOfSelector(section) {
 
 function setBestOf(event) {
   console.log(event.target.value);
-  var gameResetMessage = document.createElement('p');
-  gameResetMessage.textContent = 'New Game Started!'
-  while (resultContainer.firstChild) {
-    resultContainer.removeChild(resultContainer.firstChild);
+  if(!isNaN(Number.parseInt(event.target.value))) {
+    var gameResetMessage = document.createElement('p');
+    gameResetMessage.textContent = 'New Game Started!';
+    while (resultContainer.firstChild) {
+      resultContainer.removeChild(resultContainer.firstChild);
+    }
+    resultContainer.appendChild(gameResetMessage);
+    userWins = 0;
+    rounds = Number.parseInt(event.target.value);
+    initialNumberOfRound = Number.parseInt(event.target.value);
   }
-  resultContainer.appendChild(gameResetMessage);
-  userWins = 0;
-  rounds = Number.parseInt(event.target.value);
-  initialNumberOfRound = Number.parseInt(event.target.value);
 }
 
 function createInteractionPanel(section) {
