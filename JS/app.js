@@ -61,22 +61,36 @@ var tasPlayButtonContainer = document.getElementById('tas-play-button-container'
 var customPlayButton = document.getElementById('custom-play-button');
 var customPlayButtonContainer = document.getElementById('custom-play-button-container');
 
+var classicBoContainer = document.getElementById('classic-bo-selector-container');
+var tasBoContainer = document.getElementById('tas-bo-selector-container');
+var customBoContainer = document.getElementById('custom-bo-selector-container');
+
+var classicResultContainer = document.getElementById('classic-round-result-container');
+var tasResultsContainer = document.getElementById('tas-round-result-container');
+var customResultsContainer = document.getElementById('custom-round-result-container');
+
 var customInputFormContainer = document.getElementById('custom-form-container');
 
 classicPlayButton.addEventListener('click', classicPlay);
 tasPlayButton.addEventListener('click', tasPlay);
+
 customPlayButton.addEventListener('click', customPlay);
 
 var classicUserInteractionPanelContainer = document.getElementById('classic-user-interaction-panel-container');
 var tasUserInteractionPanelContainer = document.getElementById('tas-user-interaction-panel-container');
 var customUserInteractionPanelContainer = document.getElementById('custom-user-interaction-panel-container');
+var bodyText;
+var bodyTextContainer;
+var playButton;
+var playButtonContainer;
 
 var userInteractionPanel;
 var resultContainer;
 
-function createBestOfSelector(section) {
-  var boSelectorContainer = document.getElementById(section + '-bo-selector-container');
+var boSelectorContainer;
 
+function createBestOfSelector(section) {
+  boSelectorContainer = document.getElementById(section + '-bo-selector-container');
   var header = document.createElement('h1');
   header.textContent = 'Best Of';
   boSelectorContainer.appendChild(header);
@@ -166,6 +180,10 @@ function createInteractionPanel(section) {
 }
 
 function classicPlay() {
+  bodyText = classicText;
+  bodyTextContainer = classicTextContainer;
+  playButton = classicPlayButton;
+  playButtonContainer = classicPlayButtonContainer;
   while (classicTextContainer.firstChild) {
     classicTextContainer.removeChild(classicTextContainer.firstChild);
   }
@@ -173,16 +191,40 @@ function classicPlay() {
     classicPlayButtonContainer.removeChild(classicPlayButtonContainer.firstChild);
   }
   makeGameArray(classicItemInfo);
-  // createClassicInteractionPanel();
   classicUserInteractionPanelContainer.appendChild(createInteractionPanel('classic'));
-  // userWins = 0;
-  // rounds = 7;
-
   userInteractionPanel = classicUserInteractionPanelContainer;
   resultContainer = document.getElementById('classic-round-result-container');
+
+  while(tasBoContainer.firstChild) {
+    tasBoContainer.removeChild(tasBoContainer.firstChild);
+  }
+  while(tasUserInteractionPanelContainer.firstChild) {
+    tasUserInteractionPanelContainer.removeChild(tasUserInteractionPanelContainer.firstChild);
+  }
+  while(tasResultsContainer.firstChild) {
+    tasResultsContainer.removeChild(tasResultsContainer.firstChild);
+  }
+  tasTextContainer.appendChild(tasText);
+  tasPlayButtonContainer.appendChild(tasPlayButton);
+
+  while(customBoContainer.firstChild) {
+    customBoContainer.removeChild(customBoContainer.firstChild);
+  }
+  while(customUserInteractionPanelContainer.firstChild) {
+    customUserInteractionPanelContainer.removeChild(customUserInteractionPanelContainer.firstChild);
+  }
+  while(customResultsContainer.firstChild) {
+    customResultsContainer.removeChild(customResultsContainer.firstChild);
+  }
+  customTextContainer.appendChild(customText);
+  customPlayButtonContainer.appendChild(customPlayButton);
 }
 
 function tasPlay() {
+  bodyText = tasText;
+  bodyTextContainer = tasTextContainer;
+  playButton = tasPlayButton;
+  playButtonContainer = tasPlayButtonContainer;
   while (tasTextContainer.firstChild) {
     tasTextContainer.removeChild(tasTextContainer.firstChild);
   }
@@ -191,15 +233,38 @@ function tasPlay() {
   }
   makeGameArray(tasItemInfo);
   tasUserInteractionPanelContainer.appendChild(createInteractionPanel('tas'));
-  // createTasInteractionPanel();
-  // userWins = 0;
-  // rounds = 7;
-
   userInteractionPanel = tasUserInteractionPanelContainer;
   resultContainer = document.getElementById('tas-round-result-container');
+  while(classicBoContainer.firstChild) {
+    classicBoContainer.removeChild(classicBoContainer.firstChild);
+  }
+  while(classicUserInteractionPanelContainer.firstChild) {
+    classicUserInteractionPanelContainer.removeChild(classicUserInteractionPanelContainer.firstChild);
+  }
+  while(classicResultContainer.firstChild) {
+    classicResultContainer.removeChild(classicResultContainer.firstChild);
+  }
+  classicTextContainer.appendChild(classicText);
+  classicPlayButtonContainer.appendChild(classicPlayButton);
+
+  while(customBoContainer.firstChild) {
+    customBoContainer.removeChild(customBoContainer.firstChild);
+  }
+  while(customUserInteractionPanelContainer.firstChild) {
+    customUserInteractionPanelContainer.removeChild(customUserInteractionPanelContainer.firstChild);
+  }
+  while(customResultsContainer.firstChild) {
+    customResultsContainer.removeChild(customResultsContainer.firstChild);
+  }
+  customTextContainer.appendChild(customText);
+  customPlayButtonContainer.appendChild(customPlayButton);
 }
 
 function customPlay() {
+  bodyText = customText;
+  bodyTextContainer = customTextContainer;
+  playButton = customPlayButton;
+  playButtonContainer = customPlayButtonContainer;
   while (customTextContainer.firstChild) {
     customTextContainer.removeChild(customTextContainer.firstChild);
   }
@@ -209,9 +274,31 @@ function customPlay() {
   while (customUserInteractionPanelContainer.firstChild) {
     customUserInteractionPanelContainer.removeChild(customUserInteractionPanelContainer.firstChild);
   }
-
   createCustomInputForm();
 
+  while(classicBoContainer.firstChild) {
+    classicBoContainer.removeChild(classicBoContainer.firstChild);
+  }
+  while(classicUserInteractionPanelContainer.firstChild) {
+    classicUserInteractionPanelContainer.removeChild(classicUserInteractionPanelContainer.firstChild);
+  }
+  while(classicResultContainer.firstChild) {
+    classicResultContainer.removeChild(classicResultContainer.firstChild);
+  }
+  classicTextContainer.appendChild(classicText);
+  classicPlayButtonContainer.appendChild(classicPlayButton);
+
+  while(tasBoContainer.firstChild) {
+    tasBoContainer.removeChild(tasBoContainer.firstChild);
+  }
+  while(tasUserInteractionPanelContainer.firstChild) {
+    tasUserInteractionPanelContainer.removeChild(tasUserInteractionPanelContainer.firstChild);
+  }
+  while(tasResultsContainer.firstChild) {
+    tasResultsContainer.removeChild(tasResultsContainer.firstChild);
+  }
+  tasTextContainer.appendChild(tasText);
+  tasPlayButtonContainer.appendChild(tasPlayButton);
 }
 
 function createCustomInputForm() {
@@ -383,7 +470,7 @@ function displayResult() {
   buttonDisplay.appendChild(button3);
   resultContainer.appendChild(buttonDisplay);
 
-  var button1response = document.getElementbyId('button1');
+  var button1response = document.getElementById('button1');
   button1.addEventListener('click', replayGame);
 
   var button2response = document.getElementById('button2');
@@ -398,9 +485,17 @@ function displayResult() {
 
 // JEREMY'S event listener for play again
 function replayGame () {
-  // remove all the children created when we pressed play game
-
-
+  while(boSelectorContainer.firstChild) {
+    boSelectorContainer.removeChild(boSelectorContainer.firstChild);
+  }
+  while(userInteractionPanel.firstChild) {
+    userInteractionPanel.removeChild(userInteractionPanel.firstChild);
+  }
+  while(resultContainer.firstChild) {
+    resultContainer.removeChild(resultContainer.firstChild);
+  }
+  bodyTextContainer.appendChild(bodyText);
+  playButtonContainer.appendChild(playButton);
 }
 
 //TATIANA'S addEventListenerfunction displayResult()
@@ -428,26 +523,31 @@ function sortAllUserArray(objectArray){
 }
 
 function renderScore() {
-  if(scoreTable.textContent === ''){
-    var highScore = parseInt(userWins * 1000 / initialNumberOfRound);
-    newUser = new UserProfile(userName, highScore);
-    allUsersArray.push(newUser);
-    sortAllUserArray(allUsersArray);
-    localStorage.setItem('allUsersArray', JSON.stringify(allUsersArray));
-    tableHeader();
+  if(scoreTable.textContent !== '') {
+    scoreTable.textContent = '';
+  }
+  var button2 = document.getElementById('button2');
+  button2.removeEventListener('click', renderScore);
+  // if(scoreTable.textContent === ''){
+  var highScore = parseInt(userWins * 1000 / initialNumberOfRound);
+  newUser = new UserProfile(userName, highScore);
+  allUsersArray.push(newUser);
+  sortAllUserArray(allUsersArray);
+  localStorage.setItem('allUsersArray', JSON.stringify(allUsersArray));
+  tableHeader();
 //render table
-    for(var i = 0; i < allUsersArray.length; i++){
-      var tr = document.createElement('tr');
-      var td = document.createElement('td');
-      td.textContent = allUsersArray[i].userName;
-      console.log(allUsersArray[i].userName);
-      tr.appendChild(td);
-      var td = document.createElement('td');
-      td.textContent = allUsersArray[i].userScore;
-      console.log(allUsersArray[i].userScore);
-      tr.appendChild(td);
-      scoreTable.appendChild(tr);
-      window.location.href = '#score-table';
-    }
+  for(var i = 0; i < allUsersArray.length; i++){
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.textContent = allUsersArray[i].userName;
+    console.log(allUsersArray[i].userName);
+    tr.appendChild(td);
+    var td = document.createElement('td');
+    td.textContent = allUsersArray[i].userScore;
+    console.log(allUsersArray[i].userScore);
+    tr.appendChild(td);
+    scoreTable.appendChild(tr);
+    window.location.href = '#score-table';
+    // }
   }
 }
