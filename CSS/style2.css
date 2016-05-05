@@ -344,3 +344,9 @@ body {
 .hidden {
   display: none;
 }
+
+/*******************************LEADER BOARD*******************************/
+
+.section-results{
+  height: 500px;
+}

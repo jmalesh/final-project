@@ -1,3 +1,28 @@
+var allUsersArray = [];
+//getting info from the local storage
+(function getUserNameFromLocalStorage () {
+  if(localStorage.userName){
+    console.log('localStorage for userName exist');
+    userName = JSON.parse(localStorage.userName);
+  }else{
+    console.log('localStorage for userName doesn\'t exist');
+  };
+})();
+
+(function getAllUsersArrayFromLocalStorage () {
+  if(localStorage.allUsersArray){
+    console.log('localStorage for uallUsersArray exist');
+    allUsersArray = JSON.parse(localStorage.allUsersArray);
+  }else{
+    console.log('localStorage for allUsersArray doesn\'t exist');
+  };
+})();
+
+function UserProfile(nameInput, userScore) {
+  this.userName = nameInput;
+  this.userScore = userScore;
+}
+
 var itemArray = new Array(3);
 var classicItemInfo = [['rock', 'assets/rock.png'],
                 ['paper', 'assets/paper.jpeg'],
@@ -50,7 +75,7 @@ function createBestOfSelector(section) {
   boSelectorContainer.appendChild(header);
 
   var form = document.createElement('form');
-  form.className = "bo-selector-form";
+  form.className = 'bo-selector-form';
 
   for (var i = 0; i < 4; i++) {
     var fieldSet = document.createElement('fieldset');
@@ -265,25 +290,120 @@ function displayResult() {
     console.log('done');
     console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
   }
-  resultContainer.appendChild(p);
+  var buttonDisplay = document.createElement('div');
+  buttonDisplay.id = 'button-display';
+  var button1 = document.createElement('button');
+  button1.id = 'button1';
+  button1.textContent = 'Play again';
+  var button2 = document.createElement('button');
+  button2.id = 'button2';
+  button2.textContent = 'Leader Board';
+  var button3 = document.createElement('button');
+  button3.id = 'button3';
+  button3.textContent = 'Clear Leader Board';
 
-  // var math = (userWins / initialNumberOfRounds) * 100;
-  // var gameWinner = document.getElementById('game-winner');
-  // var roundWinner = document.getElementById('round-winner');
-  // var interactionPanel = document.getElementById('interaction-panel');
-  // gameWinner.removeAttribute('hidden');
-  // roundWinner.setAttribute('hidden', 'hidden');
-  // interactionPanel.setAttribute('hidden', 'hidden');
-  // var p = document.getElementById('game-message');
-  // if (math >= 50) {
-  //   p.textContent = 'Congratulations! You are the winner!';
-  //   console.log('done');
-  //   console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
-  // } else {
-  //   p.textContent = 'You lost!';
-  //   console.log('done');
-  //   console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
-  // }
-  // var buttonDisplay = document.getElementById('button-display');
-  // buttonDisplay.removeAttribute('hidden');
+  resultContainer.appendChild(p);
+  buttonDisplay.appendChild(button1);
+  buttonDisplay.appendChild(button2);
+  buttonDisplay.appendChild(button3);
+  resultContainer.appendChild(buttonDisplay);
+
+  var button2response = document.getElementById('button2');
+  button2response.addEventListener('click', renderScore);
+
+  var button3response = document.getElementById('button3');
+  button3response.addEventListener('click', function(){
+    localStorage.clear();
+    scoreTable.textContent = '';
+  });
+}
+//TATIANA'S addEventListenerfunction displayResult()
+
+var scoreTable = document.getElementById('score-table');
+//table header
+function tableHeader(){
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = 'Player';
+  tr.appendChild(th);
+  var th = document.createElement('th');
+  th.textContent = 'Score';
+  tr.appendChild(th);
+  scoreTable.appendChild(tr);
+}
+
+// var userProfile = [];
+//rendering scores
+
+function sortAllUserArray(objectArray){
+  function byUserScore(a, b) {
+    return parseInt(b.userScore) - parseInt(a.userScore);
+  };
+  return objectArray.sort(byUserScore);
+}
+var newUser;
+
+function renderScore() {
+  if(scoreTable.textContent === ''){
+    var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
+    newUser = new UserProfile(userName, highScore);
+    allUsersArray.push(newUser);
+    sortAllUserArray(allUsersArray);
+    localStorage.setItem('allUsersArray', JSON.stringify(allUsersArray));
+    tableHeader();
+//render table
+    for(var i = 0; i < allUsersArray.length; i++){
+      var tr = document.createElement('tr');
+      var td = document.createElement('td');
+      td.textContent = allUsersArray[i].userName;
+      console.log(allUsersArray[i].userName);
+      tr.appendChild(td);
+      var td = document.createElement('td');
+      td.textContent = allUsersArray[i].userScore;
+      console.log(allUsersArray[i].userScore);
+      tr.appendChild(td);
+      scoreTable.appendChild(tr);
+      window.location.href = '#score-table';
+    }
+  }
+}
+
+var userInputContainer = document.getElementById('user-input-container');
+userInputContainer.addEventListener('click', processUserSelection);
+
+var customInput = document.getElementById('custom-input');
+customInput.addEventListener('submit', handleCustomInput);
+
+var custom1 = [];
+var custom2 = [];
+var custom3 = [];
+
+function handleCustomInput(event) {
+  console.log('hello!');
+  event.preventDefault();
+  var photo1 = event.target.photo1.value;
+  var url1 = event.target.url1.value;
+  custom1.push(photo1, url1);
+  var photo2 = event.target.photo2.value;
+  var url2 = event.target.url2.value;
+  custom2.push(photo2, url2);
+  var photo3 = event.target.photo3.value;
+  var url3 = event.target.url3.value;
+  custom3.push(photo3, url3);
+  customItemInfo.push(custom1, custom2, custom3);
+  makeGameArray(customItemInfo);
+  renderCustomImages();
+};
+
+//Tatiana & Jam's code for the custom game
+var appendImages = document.getElementById('append-images');
+
+function renderCustomImages() {
+  customInput.setAttribute('hidden', 'hidden');
+  for (var i = 0; i < customItemInfo.length; i ++) {
+    var singleImage = document.createElement('div');
+    singleImage.innerHTML = '<img src ="' + customItemInfo[i][1] + '">';
+    singleImage.id = i;
+    appendImages.appendChild(singleImage);
+  }
 }
