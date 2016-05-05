@@ -1,3 +1,49 @@
+.dropdown {
+    position: fixed;
+    right: 50px;
+    top: 20px;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+}
+
+.drop-down-icon {
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid;
+  background: white;
+  border-radius: 10px;
+}
+
+.dropdown ul {
+  display: none;
+  margin: 0;
+list-style: none;
+}
+
+.dropdown:hover ul {
+display: list-item;
+}
+
+.dropdown:hover .drop-down-icon {
+  background-color: #ABA9A7;
+}
+
+.dropdown li {
+  background-color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown li:hover {
+  background-color: #ABA9A7;
+}
+
 /*Add to HTML: <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>*/
 div {
     display: block;
@@ -559,10 +605,6 @@ input{
   font-size: 20px;
 }
 
-.section-custom #custom-text {
-  font-size: 25px;
-}
-
 .custom-bo-selector-container {
   margin: 40px;
   display: flex;
@@ -672,30 +714,24 @@ input{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+}
 /*******************************EXTRAS*******************************/
 
-*[hidden] { display: none; }
 
-.hidden {
-  display: none;
-}
 
 /*******************************LEADER BOARD*******************************/
 
-.section-results{
-  height: 500px;
-}
 
 .leaderboard {
-  height: 720px;
+  height: 750px;
+  overflow:hidden;
   display: flex;
   justify-content: center;
-  /*background: url('../assets/images.jpg') no-repeat center center fixed;*/
-  /*-webkit-background-size: cover;
+  background-color: pink;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;*/
+  background-size: cover;
   padding-top: 25px;
 }
 
@@ -709,6 +745,7 @@ table.gridtable {
     border-color: #666666 ;
     border-collapse: collapse;
 }
+
 table.gridtable th {
     border-width: 1px;
     padding: 8px;
