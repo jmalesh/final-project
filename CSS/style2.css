@@ -131,6 +131,7 @@ body {
   align-items: center;
   border-bottom: 2px solid #fff;
   border-top: 2px solid #fff;
+  font-size: 21px;
 }
 
 /*******************************CLASSIC SEPARATOR*******************************/
@@ -152,7 +153,7 @@ body {
 
 /*******************************CLASSIC SECTION*******************************/
 .section-classic {
-  background-color: #2F4952;
+  background-color: #D3DFB8;
   height: 900px;
   overflow: hidden;
 }
@@ -181,8 +182,9 @@ body {
 }
 
 .section-classic p {
-  font: 17px/30px 'Amiri', serif;
+  font: 'Amiri', serif;
   color: black;
+  font-size: 30px;
 }
 
 .classic-user-interaction-panel {
@@ -333,6 +335,7 @@ body {
 
 /*******************************TA SECTION*******************************/
 .section-tas {
+  /*background-color: #CACFD6;*/
   background-color: #7C7A7A;
   color: white;
   /*padding: 30px;*/
@@ -359,6 +362,7 @@ body {
 .section-tas p {
   font: 17px/30px 'Amiri', serif;
   color: black;
+  font-size: 30px;
 }
 
 .section-tas .classic-round-result-container {
@@ -524,7 +528,7 @@ body {
 
 /*******************************CUSTOM SECTION*******************************/
 .section-custom {
-  /*background-color: black;*/
+  /*background-color: #B6BE9C;*/
   background-color: #A2A7A5;
   height: 900px;
   color: white;
@@ -549,6 +553,7 @@ body {
 .section-custom p {
   font: 17px/30px 'Amiri', serif;
   color: black;
+  font-size: 30px;
 }
 .section-custom .classic-round-result-container {
   display: flex;
@@ -709,12 +714,62 @@ input{
   outline: 0;
 }
 
+#submit-custom-form {
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  padding: 0 30px;
+  margin: 0;
+  color: black;
+  text-align: center;
+  font: 17px/30px 'Amiri', serif;
+  /*font-weight: 600;*/
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 0px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#submit-custom-form:hover {
+  color: #c31;
+  border-color: black;
+  outline: 0;
+}
+
+form {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
 .section-custom .custom-round-result-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.custom-user-interaction-panel img{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.custom-user-interaction-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 /*******************************EXTRAS*******************************/
 
 
@@ -727,15 +782,70 @@ input{
   overflow:hidden;
   display: flex;
   justify-content: center;
-  background-color: pink;
+  background-color: #C5DECD;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
+.leaderboard-title {
+  font: 400 76px/80px 'Oswald', sans-serif;
+  color: black;
+  letter-spacing: .02em;
+  text-align: left;
+  margin: 90px 0 0 0;
+  text-transform: uppercase;
+}
 
+.leaderboard button {
+  display: inline-block;
+  height: 50px;
+  width: 400px;
+  padding: 0 30px;
+  margin: 0;
+  color: black;
+  text-align: center;
+  font: 17px/30px 'Amiri', serif;
+  /*font-weight: 600;*/
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 0px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.leaderboard button:hover {
+  color: #c31;
+  border-color: black;
+  outline: 0;
+}
+
+.section-custom .custom-round-result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-user-interaction-panel img{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
 table.gridtable {
     font-family: 'Fredericka the Great', cursive;
     font-size:25px;
