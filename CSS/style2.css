@@ -330,9 +330,65 @@ body {
 
 /*******************************CUSTOM SECTION*******************************/
 .section-custom {
-  background-color: black;
+  background-image: url("../assets/scissors-background.jpg");
   height: 720px;
   color: white;
+}
+
+.section-custom h2{
+  font-family: 'Indie Flower', cursive;
+  font-size: 50px;
+}
+
+.section-custom h3{
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+}
+
+.section-custom button{
+  font-size: 20px;
+}
+
+.play-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.custom-game{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.title-container{
+  text-align: center;
+}
+
+.input-fields-and-submit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  margin: 20px 5px 20px 5px;
+  width: 250px;
+}
+
+.section-custom .title-container{
+  padding-top: 30px;
+}
+
+.section-custom label{
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+}
+
+#custom-text{
+  font-size: 25px;
+  text-align: center;
 }
 
 
@@ -347,6 +403,29 @@ body {
 
 /*******************************LEADER BOARD*******************************/
 
-.section-results{
+/*.section-results{
+  height: 720px;
+}*/
+
+/*body {
+  background: url('../assets/images.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+table {
+  /*display: flex;
+  justify-content: center;
+  align-content: center;*/
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 20px;
+  color: rgb(26, 9, 0);
+  margin-top: 5px;
   height: 500px;
+}
+
+#leader-board {
+
 }

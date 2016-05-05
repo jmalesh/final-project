@@ -298,24 +298,19 @@ function displayResult() {
   var button2 = document.createElement('button');
   button2.id = 'button2';
   button2.textContent = 'Leader Board';
-  var button3 = document.createElement('button');
-  button3.id = 'button3';
-  button3.textContent = 'Clear Leader Board';
+  // var button3 = document.createElement('button');
+  // button3.id = 'button3';
+  // button3.textContent = 'Clear Leader Board';
+  // buttonDisplay.appendChild(button3);
 
   resultContainer.appendChild(p);
   buttonDisplay.appendChild(button1);
   buttonDisplay.appendChild(button2);
-  buttonDisplay.appendChild(button3);
   resultContainer.appendChild(buttonDisplay);
 
   var button2response = document.getElementById('button2');
   button2response.addEventListener('click', renderScore);
 
-  var button3response = document.getElementById('button3');
-  button3response.addEventListener('click', function(){
-    localStorage.clear();
-    scoreTable.textContent = '';
-  });
 }
 //TATIANA'S addEventListenerfunction displayResult()
 
@@ -345,6 +340,17 @@ var newUser;
 
 function renderScore() {
   if(scoreTable.textContent === ''){
+    var leaderBoard = document.getElementById('leader-board');
+    var button3 = document.createElement('button');
+    button3.id = 'button3';
+    button3.textContent = 'Clear Leader Board';
+    leaderBoard.appendChild(button3);
+    var button3response = document.getElementById('button3');
+    button3response.addEventListener('click', function(){
+      localStorage.clear();
+      scoreTable.textContent = '';
+    }); //Tatiana: I am planning on moving the button to the top on Thursday
+
     var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
     newUser = new UserProfile(userName, highScore);
     allUsersArray.push(newUser);
@@ -367,7 +373,7 @@ function renderScore() {
     }
   }
 }
-
+//Tatiana & Jam's code for the custom game
 var userInputContainer = document.getElementById('user-input-container');
 userInputContainer.addEventListener('click', processUserSelection);
 
@@ -395,7 +401,6 @@ function handleCustomInput(event) {
   renderCustomImages();
 };
 
-//Tatiana & Jam's code for the custom game
 var appendImages = document.getElementById('append-images');
 
 function renderCustomImages() {

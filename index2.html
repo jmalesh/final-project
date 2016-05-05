@@ -113,54 +113,66 @@
     <div class="container-fluid section-custom">
       <div class="container">
         <div class="title-container">
-          <h2>Custom<br>Rock, Paper, Scissor</h2>
+          <!-- Tatiana's modification to the input form -->
+          <h2>Make your own game</h2>
         </div>
         <div class="text-container" id="custom-text-container">
-          <p id="custom-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          <p id="custom-text">Challenge your own photos to a battle of epic proportions! Simply nickname your elements and copy the URLs into the form provided to customize your RPS experience.
           </p>
-        </div>
-
-        <div id="custom-play-button-container" class="play-button-container">
-          <button id="custom-play-button" class="custom-button">PLAY</button>
-        </div>
-
-        <div id="custom-bo-selector-container" class="custom-bo-selector-container">
         </div>
 
         <div class="custom-user-interaction-panel-container" id="custom-user-interaction-panel-container">
           <div class="custom-form-container" id="custom-form-container">
-            <form id="custom-input">
-              <label>Enter Photo Name</label>
-              <input name="photo1" type="text">
 
-              <label>Enter Image URL</label>
-              <input name="url1" type="text">
+              <div class="custom-game">
+                <h3>Enter a nickname and the url for each item:</h3>
+              </div>
 
-              <label>Enter Photo Name</label>
-              <input name="photo2" type="text">
+              <div class="input-fields-and-submit" id="user-input-container">
 
-              <label>Enter Image URL</label>
-              <input name="url2" type="text">
+                <form id="custom-input">
+                  <div class="input-fields-and-submit">
 
-              <label>Enter Photo Name</label>
-              <input name="photo3" type="text">
+                    <div class="input-field">
+                        <label>Item 1</label>
+                        <input name="photo1" type="text" placeholder="Nickname">
+                        <input name="url1" type="text" placeholder="url">
+                    </div>
 
-              <label>Enter Image URL</label>
-              <input name="url3" type="text">
+                    <div class="input-field">
+                        <label>Item 2</label>
+                        <input name="photo2" type="text" placeholder="Nickname">
+                        <input name="url2" type="text" placeholder="url">
+                    </div>
 
-              <button type="submit" id="submit-custom">Submit</button>
-            </form>
+                    <div class="input-field">
+                        <label>Item 3</label>
+                        <input name="photo3" type="text" placeholder="Nickname">
+                        <input name="url3" type="text" placeholder="url">
+                    </div>
+
+                  </div>
+
+                  <div id="custom-play-button-container" class="play-button-container">
+                    <button type="submit" id="custom-play-button">PLAY</button>
+                  </div>
+
+                </form>
+              </div>
+
+            </div>
           </div>
 
-          <div class="custom-image-container" id="user-input-container">
+
+
+          <div class="custom-image-container">
             <!-- <div id="append-images"></div> -->
           </div>
         </div>
       </div>
-    </div>
 
     <!-- TABLE-SECTION -->
-    <div>
+    <div id="leader-board">
       <table id="score-table"></table>
     </div>
 
