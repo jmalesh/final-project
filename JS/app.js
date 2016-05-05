@@ -1,4 +1,7 @@
+var newUser;
 var allUsersArray = [];
+var scoreTable = document.getElementById('score-table');
+
 //getting info from the local storage
 (function getUserNameFromLocalStorage () {
   if(localStorage.userName){
@@ -35,8 +38,8 @@ var tasItemInfo = [['Dan', 'assets/Dan.png'],
 var customItemInfo = [];
 
 var userWins = 0;
-var rounds = 7;
-var initialNumberOfRounds = 7;
+var rounds = 0;
+var initialNumberOfRound = 0;
 
 var classicTextContainer = document.getElementById('classic-text-container');
 var classicText = document.getElementById('classic-text');
@@ -55,6 +58,8 @@ var tasPlayButtonContainer = document.getElementById('tas-play-button-container'
 
 var customPlayButton = document.getElementById('custom-play-button');
 var customPlayButtonContainer = document.getElementById('custom-play-button-container');
+
+var customInputFormContainer = document.getElementById('custom-form-container');
 
 classicPlayButton.addEventListener('click', classicPlay);
 tasPlayButton.addEventListener('click', tasPlay);
@@ -82,23 +87,65 @@ function createBestOfSelector(section) {
     var input = document.createElement('input');
     input.name = 'numbers';
     input.type = 'radio';
-    input.value = i;
-    input.id = 'bo' + i;
+    if (i === 0) {
+      input.value = 1;
+      input.id = 'bo1';
+    } else if (i === 1) {
+      input.value = 3;
+      input.id = 'bo3';
+    } else if (i === 2) {
+      input.value = 5;
+      input.id = 'bo5';
+    } else if (i === 3) {
+      input.value = 7;
+      input.id = 'bo7';
+    }
     // input.textContent = i;
     fieldSet.appendChild(input);
     var label = document.createElement('label');
-    label.setAttribute('for', ('bo' + i));
-    label.textContent = i;
+
+    if (i === 0) {
+      label.setAttribute('for', 'bo1');
+      label.textContent = 1;
+    } else if (i === 1) {
+      label.setAttribute('for', 'bo3');
+      label.textContent = 3;
+    } else if (i === 2) {
+      label.setAttribute('for', 'bo5');
+      label.textContent = 5;
+    } else if (i === 3) {
+      label.setAttribute('for', 'bo7');
+      label.textContent = 7;
+    }
+
     fieldSet.appendChild(label);
     form.appendChild(fieldSet);
   }
   boSelectorContainer.appendChild(form);
+
+  boSelectorContainer.addEventListener('click', setBestOf);
+  userWins = 0;
+  rounds = 0;
+  initialNumberOfRound = 0;
 }
 
-function createClassicInteractionPanel() {
+function setBestOf(event) {
+  console.log(event.target.value);
+  var gameResetMessage = document.createElement('p');
+  gameResetMessage.textContent = 'New Game Started!'
+  while (resultContainer.firstChild) {
+    resultContainer.removeChild(resultContainer.firstChild);
+  }
+  resultContainer.appendChild(gameResetMessage);
+  userWins = 0;
+  rounds = Number.parseInt(event.target.value);
+  initialNumberOfRound = Number.parseInt(event.target.value);
+}
+
+function createInteractionPanel(section) {
   var tempInteractionPanel = document.createElement('div');
-  tempInteractionPanel.className = 'classic-user-interaction-panel';
-  tempInteractionPanel.id = 'classic-user-interaction-panel';
+  tempInteractionPanel.className = section + '-user-interaction-panel';
+  tempInteractionPanel.id = section + '-user-interaction-panel';
 
   for (var i = 0; i < 3; i++) {
     var imgDiv = document.createElement('div');
@@ -108,46 +155,10 @@ function createClassicInteractionPanel() {
     imgDiv.appendChild(img);
     tempInteractionPanel.appendChild(imgDiv);
   }
-
   tempInteractionPanel.addEventListener('click', processUserSelection);
-  classicUserInteractionPanelContainer.appendChild(tempInteractionPanel);
-  createBestOfSelector('classic');
-}
 
-function createTasInteractionPanel() {
-  var tempInteractionPanel = document.createElement('div');
-  tempInteractionPanel.className = 'tas-user-interaction-panel';
-  tempInteractionPanel.id = 'tas-user-interaction-panel';
-
-  for (var i = 0; i < 3; i++) {
-    var imgDiv = document.createElement('div');
-    imgDiv.id = 'div' + i;
-    var img = document.createElement('img');
-    img.src = itemArray[i].url;
-    imgDiv.appendChild(img);
-    tempInteractionPanel.appendChild(imgDiv);
-  }
-  tempInteractionPanel.addEventListener('click', processUserSelection);
-  tasUserInteractionPanelContainer.appendChild(tempInteractionPanel);
-  createBestOfSelector('tas');
-}
-
-function createCustomInteractionPanel() {
-  var tempInteractionPanel = document.createElement('div');
-  userInteractionPanel.className = 'custom-user-interaction-panel';
-  userInteractionPanel.id = 'custom-user-interaction-panel';
-
-  for (var i = 0; i < 3; i++) {
-    var imgDiv = document.createElement('div');
-    imgDiv.id = 'div' + i;
-    var img = document.createElement('img');
-    img.src = itemArray[i].url;
-    imgDiv.appendChild(img);
-    userInteractionPanel.appendChild(imgDiv);
-  }
-  tempInteractionPanel.addEventListener('click', processUserSelection);
-  customUserInteractionPanelContainer.appendChild(tempInteractionPanel);
-  createBestOfSelector('custom');
+  createBestOfSelector(section);
+  return tempInteractionPanel;
 }
 
 function classicPlay() {
@@ -158,9 +169,10 @@ function classicPlay() {
     classicPlayButtonContainer.removeChild(classicPlayButtonContainer.firstChild);
   }
   makeGameArray(classicItemInfo);
-  createClassicInteractionPanel();
-  userWins = 0;
-  rounds = 7;
+  // createClassicInteractionPanel();
+  classicUserInteractionPanelContainer.appendChild(createInteractionPanel('classic'));
+  // userWins = 0;
+  // rounds = 7;
 
   userInteractionPanel = classicUserInteractionPanelContainer;
   resultContainer = document.getElementById('classic-round-result-container');
@@ -174,16 +186,75 @@ function tasPlay() {
     tasPlayButtonContainer.removeChild(tasPlayButtonContainer.firstChild);
   }
   makeGameArray(tasItemInfo);
-  createTasInteractionPanel();
-  userWins = 0;
-  rounds = 7;
+  tasUserInteractionPanelContainer.appendChild(createInteractionPanel('tas'));
+  // createTasInteractionPanel();
+  // userWins = 0;
+  // rounds = 7;
 
   userInteractionPanel = tasUserInteractionPanelContainer;
   resultContainer = document.getElementById('tas-round-result-container');
 }
 
-function customPlay(event) {
+function customPlay() {
+  while (customTextContainer.firstChild) {
+    customTextContainer.removeChild(customTextContainer.firstChild);
+  }
+  while (customPlayButtonContainer.firstChild) {
+    customPlayButtonContainer.removeChild(customPlayButtonContainer.firstChild);
+  }
+  while (customUserInteractionPanelContainer.firstChild) {
+    customUserInteractionPanelContainer.removeChild(customUserInteractionPanelContainer.firstChild);
+  }
+
+  createCustomInputForm();
+
+}
+
+function createCustomInputForm() {
+  var customForm = document.createElement('form');
+  for (var i = 1; i < 4; i++) {
+    var fieldSet = document.createElement('fieldset');
+    var label1 = document.createElement('label')
+    label1.textContent = 'Enter Image Name';
+    label1.setAttribute('for', ('photo' + i));
+
+    var input1 = document.createElement('input');
+    input1.name = 'photo' + i;
+    input1.id = 'photo' + i;
+    input1.type = 'text';
+
+    fieldSet.appendChild(label1);
+    fieldSet.appendChild(input1);
+
+    var label2 = document.createElement('label')
+    label2.textContent = 'Enter Image URL';
+    label2.setAttribute('for', ('url' + i));
+    var input2 = document.createElement('input');
+    input2.name = 'url' + i;
+    input2.id = 'url' + i;
+    input2.type = 'text';
+
+    fieldSet.appendChild(label2);
+    fieldSet.appendChild(input2);
+
+    customForm.appendChild(fieldSet);
+  }
+
+
+  var submitButton = document.createElement('input');
+  submitButton.type = 'submit';
+  submitButton.id = 'submit-custom-form';
+  submitButton.textContent = 'Submit';
+  customForm.appendChild(submitButton);
+  customForm.addEventListener('submit', processCustomForm);
+  console.log(customForm);
+  customUserInteractionPanelContainer.appendChild(customForm);
+}
+
+
+function processCustomForm(event) {
   event.preventDefault();
+  console.log('hello');
   var photo1 = event.target.photo1.value;
   var url1 = event.target.url1.value;
   var custom1 = [photo1, url1];
@@ -195,7 +266,6 @@ function customPlay(event) {
   var custom3 = [photo3, url3];
   customItemInfo = [custom1, custom2, custom3];
 
-  makeGameArray(customItemInfo);
 
   while (customTextContainer.firstChild) {
     customTextContainer.removeChild(customTextContainer.firstChild);
@@ -207,7 +277,13 @@ function customPlay(event) {
     customUserInteractionPanelContainer.removeChild(customUserInteractionPanelContainer.firstChild);
   }
 
-  createCustomInteractionPanel();
+  makeGameArray(customItemInfo);
+
+  customUserInteractionPanelContainer.appendChild(createInteractionPanel('custom'));
+
+  userInteractionPanel = customUserInteractionPanelContainer;
+  resultContainer = document.getElementById('custom-round-result-container');
+
 }
 
 function RPSItem(name, url) {
@@ -252,13 +328,15 @@ function oneRound(userInput) {
   while (resultContainer.firstChild) {
     resultContainer.removeChild(resultContainer.firstChild);
   }
-  // userInteractionPanel.removeEventListener('click', processUserSelection);
   resultContainer.appendChild(roundWinner);
-  // resultContainer.appendChild(continueButton);
 }
 
-// var userInputContainer = document.getElementById('user-input-container');
 function processUserSelection(event) {
+  if (initialNumberOfRound === 0) {
+    alert('select a bo');
+    return;
+  }
+
   if (rounds) {
     var clickedOnDiv = parseInt(event.target.parentNode.id.charAt(3));
     console.log('user clicked on div number ' + clickedOnDiv);
@@ -266,29 +344,25 @@ function processUserSelection(event) {
       var userInput = itemArray[parseInt(clickedOnDiv)];
       console.log('user input is ' + userInput.name);
       oneRound(userInput);
-      // reportOneRound();
       rounds--;
     }
     if (rounds == 0) {
-      // while (resultContainer.firstChild) {
-      //   resultContainer.removeChild(resultContainer.firstChild);
-      // }
       displayResult();
     }
   }
 }
 
 function displayResult() {
-  var math = (userWins / initialNumberOfRounds) * 100;
+  var math = (userWins / initialNumberOfRound) * 100;
   var p = document.createElement('p');
   if (math >= 50) {
     p.textContent = 'Congratulations! You are the winner!';
     console.log('done');
-    console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRounds);
+    console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRound);
   } else {
-    p.textContent = 'You lost! Won ' + userWins + ' out of ' + initialNumberOfRounds;
+    p.textContent = 'You lost! Won ' + userWins + ' out of ' + initialNumberOfRound;
     console.log('done');
-    console.log('You lost ' + userWins + ' out of ' + initialNumberOfRounds + '!');
+    console.log('You lost ' + userWins + ' out of ' + initialNumberOfRound + '!');
   }
   var buttonDisplay = document.createElement('div');
   buttonDisplay.id = 'button-display';
@@ -319,7 +393,6 @@ function displayResult() {
 }
 //TATIANA'S addEventListenerfunction displayResult()
 
-var scoreTable = document.getElementById('score-table');
 //table header
 function tableHeader(){
   var tr = document.createElement('tr');
@@ -341,11 +414,10 @@ function sortAllUserArray(objectArray){
   };
   return objectArray.sort(byUserScore);
 }
-var newUser;
 
 function renderScore() {
   if(scoreTable.textContent === ''){
-    var highScore = parseInt(userWins * 1000 / initialNumberOfRounds);
+    var highScore = parseInt(userWins * 1000 / initialNumberOfRound);
     newUser = new UserProfile(userName, highScore);
     allUsersArray.push(newUser);
     sortAllUserArray(allUsersArray);
@@ -365,45 +437,5 @@ function renderScore() {
       scoreTable.appendChild(tr);
       window.location.href = '#score-table';
     }
-  }
-}
-
-var userInputContainer = document.getElementById('user-input-container');
-userInputContainer.addEventListener('click', processUserSelection);
-
-var customInput = document.getElementById('custom-input');
-customInput.addEventListener('submit', handleCustomInput);
-
-var custom1 = [];
-var custom2 = [];
-var custom3 = [];
-
-function handleCustomInput(event) {
-  console.log('hello!');
-  event.preventDefault();
-  var photo1 = event.target.photo1.value;
-  var url1 = event.target.url1.value;
-  custom1.push(photo1, url1);
-  var photo2 = event.target.photo2.value;
-  var url2 = event.target.url2.value;
-  custom2.push(photo2, url2);
-  var photo3 = event.target.photo3.value;
-  var url3 = event.target.url3.value;
-  custom3.push(photo3, url3);
-  customItemInfo.push(custom1, custom2, custom3);
-  makeGameArray(customItemInfo);
-  renderCustomImages();
-};
-
-//Tatiana & Jam's code for the custom game
-var appendImages = document.getElementById('append-images');
-
-function renderCustomImages() {
-  customInput.setAttribute('hidden', 'hidden');
-  for (var i = 0; i < customItemInfo.length; i ++) {
-    var singleImage = document.createElement('div');
-    singleImage.innerHTML = '<img src ="' + customItemInfo[i][1] + '">';
-    singleImage.id = i;
-    appendImages.appendChild(singleImage);
   }
 }
