@@ -530,7 +530,7 @@ body {
 .section-custom {
   /*background-color: #B6BE9C;*/
   background-color: #A2A7A5;
-  height: 900px;
+  height: 950px;
   color: white;
 }
 
@@ -715,11 +715,12 @@ input{
 }
 
 #submit-custom-form {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   height: 50px;
   width: 200px;
   padding: 0 30px;
-  margin: 0;
+  margin: 0 auto;
   color: black;
   text-align: center;
   font: 17px/30px 'Amiri', serif;
@@ -747,7 +748,7 @@ input{
 
 form {
   display: flex;
-  flex-direction:row;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -779,7 +780,6 @@ form {
 
 .leaderboard {
   height: 750px;
-  overflow:hidden;
   display: flex;
   justify-content: center;
   background-color: #C5DECD;
@@ -790,7 +790,7 @@ form {
   padding-top: 25px;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -850,7 +850,7 @@ table.gridtable {
     font-family: 'Fredericka the Great', cursive;
     font-size:25px;
     color: rgb(26, 9, 0);
-    margin-top: 25px;
+    margin-top: 5px;
     border-width: 1px;
     border-color: #666666 ;
     border-collapse: collapse;
@@ -858,7 +858,7 @@ table.gridtable {
 
 table.gridtable th {
     border-width: 1px;
-    padding: 8px;
+    padding: 4px;
     border-style: solid;
     border-color: #666666 ;
     background-color: #dedede ;
@@ -866,7 +866,7 @@ table.gridtable th {
 }
 table.gridtable td {
     border-width: 1px;
-    padding: 8px;
+    padding: 4px;
     border-style: solid;
     border-color: #666666 ;
     background-color: #ffffff ;
