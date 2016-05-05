@@ -383,6 +383,9 @@ function displayResult() {
   buttonDisplay.appendChild(button3);
   resultContainer.appendChild(buttonDisplay);
 
+  var button1response = document.getElementbyId('button1');
+  button1.addEventListener('click', replayGame);
+
   var button2response = document.getElementById('button2');
   button2response.addEventListener('click', renderScore);
 
@@ -392,6 +395,14 @@ function displayResult() {
     scoreTable.textContent = '';
   });
 }
+
+// JEREMY'S event listener for play again
+function replayGame () {
+  // remove all the children created when we pressed play game
+
+
+}
+
 //TATIANA'S addEventListenerfunction displayResult()
 
 //table header
