@@ -12,8 +12,8 @@
     <link href='https://fonts.googleapis.com/css?family=Amiri' rel='stylesheet' type='text/css'>
   </head>
 
-  <body>
-    
+  <body id="very-top">
+
     <div class="dropdown">
     <img src="CSS/Img/hamburger.png" class="drop-down-icon" />
     <ul>
@@ -146,7 +146,13 @@
 
     <!-- TABLE-SECTION -->
     <div id="leaderboard" class="leaderboard">
-      <table id="score-table" class="gridtable"></table>
+      <h1 class="leaderboard-title">LEADERBOARD</h1>
+      <div>
+        <table id="score-table" class="gridtable"></table>
+      </div>
+      <div>
+        <button id="clear-leader-board-button" class="clear-leader-board-button">Clear Leaderboard</button>
+      </div>
     </div>
 
     <script src="JS/app.js"></script>
