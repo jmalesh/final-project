@@ -479,6 +479,7 @@ function displayResult() {
   var button3response = document.getElementById('button3');
   button3response.addEventListener('click', function(){
     localStorage.clear();
+    allUsersArray = [];
     scoreTable.textContent = '';
   });
 }
@@ -496,6 +497,7 @@ function replayGame () {
   }
   bodyTextContainer.appendChild(bodyText);
   playButtonContainer.appendChild(playButton);
+  window.location.href = '#very-top';
 }
 
 //TATIANA'S addEventListenerfunction displayResult()
