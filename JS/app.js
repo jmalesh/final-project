@@ -405,13 +405,15 @@ function oneRound(userInput) {
   console.log('comp input is ' + computerInput.name);
   var roundWinner = document.createElement('p');
 
+  roundWinner.appendChild(document.createTextNode('[Round ' + (initialNumberOfRound - rounds + 1) + '/' + initialNumberOfRound + '] '));
+
   if (userInput.beat === computerInput.beat) {
-    roundWinner.appendChild(document.createTextNode('Tie'));
+    roundWinner.appendChild(document.createTextNode('Computer picks ' + computerInput.name + '. It\'s a TIE'));
   } else if (userInput.beat === computerInput) {
-    roundWinner.appendChild(document.createTextNode('Won'));
+    roundWinner.appendChild(document.createTextNode('Computer picks ' + computerInput.name + '. It\'s a WIN'));
     userWins++;
   } else {
-    roundWinner.appendChild(document.createTextNode('Lost'));
+    roundWinner.appendChild(document.createTextNode('Computer picks ' + computerInput.name + '. It\'s a LOST'));
   }
   while (resultContainer.firstChild) {
     resultContainer.removeChild(resultContainer.firstChild);
@@ -421,7 +423,7 @@ function oneRound(userInput) {
 
 function processUserSelection(event) {
   if (initialNumberOfRound === 0) {
-    alert('select a bo');
+    alert('Please choose the number of rounds!!!');
     return;
   }
 
@@ -443,15 +445,16 @@ function processUserSelection(event) {
 function displayResult() {
   var math = (userWins / initialNumberOfRound) * 100;
   var p = document.createElement('p');
-  if (math >= 50) {
-    p.textContent = 'Congratulations! You are the winner!';
-    console.log('done');
-    console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRound);
-  } else {
-    p.textContent = 'You lost! Won ' + userWins + ' out of ' + initialNumberOfRound;
-    console.log('done');
-    console.log('You lost ' + userWins + ' out of ' + initialNumberOfRound + '!');
-  }
+  p.textContent = 'You\'ve won ' + userWins + ' out of ' + initialNumberOfRound + ' rounds.';
+
+  // if (math >= 50) {
+  //   p.textContent = 'Congratulations! You are the winner!';
+  //   console.log('done');
+  //   console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRound);
+  // } else {
+  //   console.log('done');
+  //   console.log('You lost ' + userWins + ' out of ' + initialNumberOfRound + '!');
+  // }
   var buttonDisplay = document.createElement('div');
   buttonDisplay.id = 'button-display';
   var button1 = document.createElement('button');
@@ -460,14 +463,14 @@ function displayResult() {
   var button2 = document.createElement('button');
   button2.id = 'button2';
   button2.textContent = 'Leader Board';
-  var button3 = document.createElement('button');
-  button3.id = 'button3';
-  button3.textContent = 'Clear Leader Board';
+  // var button3 = document.createElement('button');
+  // button3.id = 'button3';
+  // button3.textContent = 'Clear Leader Board';
 
   resultContainer.appendChild(p);
   buttonDisplay.appendChild(button1);
   buttonDisplay.appendChild(button2);
-  buttonDisplay.appendChild(button3);
+  // buttonDisplay.appendChild(button3);
   resultContainer.appendChild(buttonDisplay);
 
   var button1response = document.getElementById('button1');
@@ -476,11 +479,8 @@ function displayResult() {
   var button2response = document.getElementById('button2');
   button2response.addEventListener('click', renderScore);
 
-  var button3response = document.getElementById('button3');
-  button3response.addEventListener('click', function(){
-    localStorage.clear();
-    scoreTable.textContent = '';
-  });
+  // var button3response = document.getElementById('button3');
+
 }
 
 // JEREMY'S event listener for play again
@@ -552,3 +552,12 @@ function renderScore() {
     // }
   }
 }
+
+var clearLeaderBoardButton = document.getElementById('clear-leader-board-button');
+clearLeaderBoardButton.addEventListener('click', function(){
+
+  localStorage.clear();
+  allUsersArray = [new UserProfile(userName, 0)];
+
+  scoreTable.textContent = '';
+});
