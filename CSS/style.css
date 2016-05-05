@@ -36,6 +36,7 @@ h5 {
 }
 
 div.logo {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   border-top: thick;
@@ -45,13 +46,6 @@ div.userName {
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-div.aboutUs {
-  display: flex;
-  justify-content: center;
-  margin-top: 350px;
   margin-bottom: 10px;
 }
 
@@ -90,3 +84,50 @@ button:active {
    border-top-color: #203540;
    background: #203540;
    }
+
+ .dropdown {
+     position: fixed;
+     right: 50px;
+     top: 20px;
+     text-align: right;
+    font-family: 'Oswald', sans-serif;
+ }
+
+ .drop-down-icon {
+   right: 0px;
+   height: 40px;
+   width: 40px;
+   border: 1px solid;
+   background: white;
+   border-radius: 10px;
+ }
+
+
+ .dropdown ul {
+   display: none;
+   margin: 0;
+ list-style: none;
+ }
+
+ .dropdown:hover ul {
+ display: list-item;
+ }
+
+ .dropdown:hover .drop-down-icon {
+   background-color: #ABA9A7;
+ }
+
+ .dropdown li {
+   background-color: white;
+   text-align: center;
+   padding: 5px;
+ }
+
+ a {
+     text-decoration: none;
+     color: black;
+ }
+
+ .dropdown li:hover {
+   background-color: #ABA9A7;
+ }
