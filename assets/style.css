@@ -1,0 +1,352 @@
+div {
+    display: block;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/*******************************SECTION INTRO*******************************/
+.section-intro {
+  font-family: 'Quattrocento', serif;
+  background-color: #212221;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-intro>.container {
+  width: 100%;
+  max-width: 1280px;
+  min-width: 900px;
+  height: 720px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.section-intro .title-container {
+  text-align: left;
+  max-width: 600px;
+  min-width: 600px;
+  overflow: hidden;
+  word-wrap: normal;
+  margin: 0;
+}
+
+.section-intro h2 {
+  font-size: 90px;
+  line-height: 100px;
+  font-weight: normal;
+  color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.section-intro .text-container {
+  text-align: justify;
+  width: 500px;
+  min-width: 300px;
+  word-wrap: normal;
+  margin: 0 100px 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+  border-top: 2px solid #fff;
+}
+
+/*******************************CLASSIC SEPARATOR*******************************/
+.section-separator-classic {
+  background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
+  background-size: cover;
+  min-width: 720px;
+  height: 450px;
+}
+
+/*.section-separator-classic>.container {
+  width: 100%;
+  overflow: hidden;
+  /*padding: 40px 180px 140px;*/
+  /*background-color: white;*/
+  /*box-sizing: border-box;*/
+  /*height: 500px;*/
+/*}*/
+
+/*******************************CLASSIC SECTION*******************************/
+.section-classic {
+  background-color: white;
+  height: 900px;
+  overflow: hidden;
+}
+
+.secton-classic .container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-classic h2 {
+  font: 400 76px/80px 'Oswald', sans-serif;
+  color: black;
+  letter-spacing: .02em;
+  text-align: left;
+  margin: 90px 0 0 0;
+  text-transform: uppercase;
+}
+
+.section-classic .text-container {
+  text-align: justify;
+  letter-spacing: .05em;
+  margin: 60px auto 60px auto;
+  max-width: 600px;
+}
+
+.section-classic p {
+  font: 17px/30px 'Amiri', serif;
+  color: black;
+}
+
+.classic-user-interaction-panel {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: center;
+}
+
+.classic-user-interaction-panel img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.classic-user-interaction-panel div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.section-classic .play-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.section-classic .classic-round-result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*text-transform: capitalize;*/
+}
+
+.classic-bo-selector-container {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*height: 90vh;*/
+  flex-direction: column;
+  font-family: 'open sans', helvetica, sans-serif;
+}
+
+.classic-bo-selector-container h2 {
+  /*margin-bottom: 1rem;*/
+  margin: 0;
+  font-weight: bold;
+}
+
+.classic-bo-selector-container form {
+  max-width: 40rem;
+  min-width: 20rem;
+  width: 66%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.classic-bo-selector-container fieldset {
+    align-items: stretch;
+    flex-grow: 1;
+    flex-basis: auto;
+    display: flex;
+    padding: 0;
+    border: 0;
+    /*width: 150px;*/
+}
+
+.classic-bo-selector-container label {
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  background: #E8E8E8;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.classic-bo-selector-container label:hover {
+  background: #D8D8D8;
+}
+
+.classic-bo-selector-container input[type="radio"] {
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.classic-bo-selector-container input[type="radio"]:checked ~ label {
+  background: black;
+  color: white;
+  box-shadow: 0 .1rem .45rem 0 rgba(0,0,0,1);
+  transform: scale(1.25);
+  animation: checked 200ms 1;
+}
+
+.classic-bo-selector-container @-webkit-keyframes checked {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
+
+.section-classic button {
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  padding: 0 30px;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font: 17px/30px 'Amiri', serif;
+  color: black;
+  /*font-weight: 600;*/
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 0px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.section-classic button:hover {
+  color: #c31;
+  border-color: black;
+  outline: 0;
+}
+
+/*******************************TA SEPARATOR*******************************/
+.section-separator-tas {
+  background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
+  background-size: cover;
+  min-width: 720px;
+  height: 450px;
+}
+
+/*******************************TA SECTION*******************************/
+.section-tas {
+  background-color: black;
+  /*background-size: cover;*/
+  color: white;
+  /*padding: 30px;*/
+  height: 720px;
+  /*height: 700px;*/
+}
+
+.section-tas .container h2 {
+    font: 46px/52px 'Quando', sans-serif;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.section-tas p {
+    font-weight: 300;
+    margin-bottom: 26px;
+}
+
+.tas-user-interaction-panel {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: center;
+}
+
+.tas-user-interaction-panel img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.tas-user-interaction-panel div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+
+/*******************************CUSTOM SEPARATOR*******************************/
+.section-separator-custom {
+  background: url('../assets/rockpaperscissors.gif') no-repeat center center fixed;
+  background-size: cover;
+  min-width: 720px;
+  height: 450px;
+}
+
+/*******************************CUSTOM SECTION*******************************/
+.section-custom {
+  background-color: black;
+  height: 720px;
+  color: white;
+}
+
+
+
+/*******************************EXTRAS*******************************/
+
+*[hidden] { display: none; }
+
+.hidden {
+  display: none;
+}
+
+/*******************************LEADER BOARD*******************************/
+
+.section-results{
+  height: 500px;
+}
