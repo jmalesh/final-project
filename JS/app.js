@@ -1,6 +1,5 @@
 // TODO: PLAY AGAIN BUTTON, return other sections to their original state when pressing on other play buttons in other sections
 
-
 var newUser;
 var allUsersArray = [];
 var scoreTable = document.getElementById('score-table');
@@ -31,12 +30,12 @@ function UserProfile(nameInput, userScore) {
 
 var itemArray = new Array(3);
 var classicItemInfo = [['rock', 'assets/rock.png'],
-                ['paper', 'assets/paper.jpeg'],
+                ['paper', 'assets/paper.png'],
                 ['scissor', 'assets/scissor.png']];
 
-var tasItemInfo = [['Dan', 'assets/Dan.png'],
-                ['Jonathan', 'assets/Jonathan.jpeg'],
-                ['Katie', 'assets/katie.jpeg']];
+var tasItemInfo = [['Dan', 'assets/dan-line.jpg'],
+                ['Jonathan', 'assets/jonny-line.jpg'],
+                ['Katie', 'assets/katie-line.jpg']];
 
 var customItemInfo = [];
 
@@ -219,8 +218,8 @@ function createCustomInputForm() {
   var customForm = document.createElement('form');
   for (var i = 1; i < 4; i++) {
     var fieldSet = document.createElement('fieldset');
-    var label1 = document.createElement('label')
-    label1.textContent = 'Enter Image Name';
+    var label1 = document.createElement('label');
+    label1.textContent = 'Enter Nickname';
     label1.setAttribute('for', ('photo' + i));
 
     var input1 = document.createElement('input');
@@ -231,8 +230,8 @@ function createCustomInputForm() {
     fieldSet.appendChild(label1);
     fieldSet.appendChild(input1);
 
-    var label2 = document.createElement('label')
-    label2.textContent = 'Enter Image URL';
+    var label2 = document.createElement('label');
+    label2.textContent = 'Enter URL';
     label2.setAttribute('for', ('url' + i));
     var input2 = document.createElement('input');
     input2.name = 'url' + i;
@@ -245,17 +244,15 @@ function createCustomInputForm() {
     customForm.appendChild(fieldSet);
   }
 
-
   var submitButton = document.createElement('input');
   submitButton.type = 'submit';
   submitButton.id = 'submit-custom-form';
-  submitButton.textContent = 'Submit';
+  submitButton.textContent = 'SUBMIT';
   customForm.appendChild(submitButton);
   customForm.addEventListener('submit', processCustomForm);
   console.log(customForm);
   customUserInteractionPanelContainer.appendChild(customForm);
 }
-
 
 function processCustomForm(event) {
   event.preventDefault();
@@ -270,7 +267,6 @@ function processCustomForm(event) {
   var url3 = event.target.url3.value;
   var custom3 = [photo3, url3];
   customItemInfo = [custom1, custom2, custom3];
-
 
   while (customTextContainer.firstChild) {
     customTextContainer.removeChild(customTextContainer.firstChild);

@@ -105,7 +105,7 @@ body {
 
 /*******************************CLASSIC SECTION*******************************/
 .section-classic {
-  background-color: white;
+  background-color: #2F4952;
   height: 900px;
   overflow: hidden;
 }
@@ -114,6 +114,7 @@ body {
   display:flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .section-classic h2 {
@@ -145,8 +146,10 @@ body {
 }
 
 .classic-user-interaction-panel img {
-  max-width: 200px;
-  max-height: 200px;
+  /*max-width: 200px;
+  max-height: 200px;*/
+  width: 200px;
+  height: 200px;
 }
 
 .classic-user-interaction-panel div {
@@ -282,7 +285,7 @@ body {
 
 /*******************************TA SECTION*******************************/
 .section-tas {
-  background-color: black;
+  background-color: #7C7A7A;
   /*background-size: cover;*/
   color: white;
   /*padding: 30px;*/
@@ -294,11 +297,32 @@ body {
     font: 46px/52px 'Quando', sans-serif;
     font-weight: 300;
     margin-bottom: 20px;
+
+}
+
+.section-tas .container > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.section-tas .title-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.section-tas .text-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .section-tas p {
     font-weight: 300;
     margin-bottom: 26px;
+    font-size: 25px;
 }
 
 .tas-user-interaction-panel {
@@ -319,6 +343,10 @@ body {
   border: 1px solid black;
 }
 
+.section-tas button{
+  font-size: 20px;
+}
+
 
 /*******************************CUSTOM SEPARATOR*******************************/
 .section-separator-custom {
@@ -330,9 +358,61 @@ body {
 
 /*******************************CUSTOM SECTION*******************************/
 .section-custom {
-  background-color: black;
+  /*background-color: black;*/
+  background-color: #A2A7A5;
   height: 720px;
   color: white;
+}
+
+.section-custom h2{
+  font-family: 'Indie Flower', cursive;
+  font-size: 50px;
+}
+
+.section-custom h3{
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+}
+
+.section-custom button{
+  font-size: 20px;
+}
+
+.section-custom .container > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.custom-game{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input-fields-and-submit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  margin: 20px 5px 20px 5px;
+  width: 250px;
+}
+
+.section-custom .title-container{
+  padding-top: 30px;
+}
+
+.section-custom label{
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+}
+
+.section-custom #custom-text {
+  font-size: 25px;
 }
 
 
