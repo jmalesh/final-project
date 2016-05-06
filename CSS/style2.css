@@ -1,3 +1,4 @@
+
 .dropdown {
     position: fixed;
     right: 50px;
@@ -154,7 +155,7 @@ body {
 /*******************************CLASSIC SECTION*******************************/
 .section-classic {
   background-color: #D3DFB8;
-  height: 900px;
+  height: 950px;
   overflow: hidden;
 }
 
@@ -339,7 +340,7 @@ body {
   background-color: #7C7A7A;
   color: white;
   /*padding: 30px;*/
-  height: 900px;
+  height: 950px;
   /*height: 700px;*/
 }
 
