@@ -23,6 +23,7 @@ h1 {
   border-top: 4px solid white;
   border-bottom: 4px solid white;
   margin-bottom: 15px;
+  letter-spacing: 2px;
 }
 
 h5 {
@@ -33,6 +34,7 @@ h5 {
   font-size: 40px;
   margin-top: 0px;
   margin-bottom: 0px;
+  letter-spacing: 2px;
 }
 
 div.logo {
@@ -70,7 +72,7 @@ button {
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
-   font-size: 14px;
+   font-size: 20px;
    font-family: Georgia, Serif;
    text-decoration: none;
    vertical-align: middle;
@@ -84,7 +86,10 @@ button:active {
    border-top-color: #203540;
    background: #203540;
    }
-
+input {
+  height: 25px;
+  width: 100px;
+}
  .dropdown {
      position: fixed;
      right: 50px;

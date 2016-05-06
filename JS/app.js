@@ -161,6 +161,7 @@ function setBestOf(event) {
 }
 
 function createInteractionPanel(section) {
+  window.location.href = '#' + section + '-bo-selector-container';
   var tempInteractionPanel = document.createElement('div');
   tempInteractionPanel.className = section + '-user-interaction-panel';
   tempInteractionPanel.id = section + '-user-interaction-panel';
@@ -343,7 +344,12 @@ function createCustomInputForm() {
 
 function processCustomForm(event) {
   event.preventDefault();
-  console.log('hello');
+  if (event.target.photo1.value === '' || event.target.url1.value === '' ||
+      event.target.photo2.value === '' || event.target.url2.value === '' ||
+      event.target.photo3.value === '' || event.target.url3.value === ''){
+    alert('Please fill out all the fields!');
+    return;
+  }
   var photo1 = event.target.photo1.value;
   var url1 = event.target.url1.value;
   var custom1 = [photo1, url1];
@@ -447,14 +453,6 @@ function displayResult() {
   var p = document.createElement('p');
   p.textContent = 'You\'ve won ' + userWins + ' out of ' + initialNumberOfRound + ' rounds.';
 
-  // if (math >= 50) {
-  //   p.textContent = 'Congratulations! You are the winner!';
-  //   console.log('done');
-  //   console.log('You\'ve won ' + userWins + ' out of ' + initialNumberOfRound);
-  // } else {
-  //   console.log('done');
-  //   console.log('You lost ' + userWins + ' out of ' + initialNumberOfRound + '!');
-  // }
   var buttonDisplay = document.createElement('div');
   buttonDisplay.id = 'button-display';
   var button1 = document.createElement('button');
@@ -462,15 +460,10 @@ function displayResult() {
   button1.textContent = 'Play again';
   var button2 = document.createElement('button');
   button2.id = 'button2';
-  button2.textContent = 'Leader Board';
-  // var button3 = document.createElement('button');
-  // button3.id = 'button3';
-  // button3.textContent = 'Clear Leader Board';
-
+  button2.textContent = 'Leaderboard';
   resultContainer.appendChild(p);
   buttonDisplay.appendChild(button1);
   buttonDisplay.appendChild(button2);
-  // buttonDisplay.appendChild(button3);
   resultContainer.appendChild(buttonDisplay);
 
   var button1response = document.getElementById('button1');
@@ -478,8 +471,6 @@ function displayResult() {
 
   var button2response = document.getElementById('button2');
   button2response.addEventListener('click', renderScore);
-
-  // var button3response = document.getElementById('button3');
 
 }
 
@@ -497,6 +488,7 @@ function replayGame () {
   bodyTextContainer.appendChild(bodyText);
   playButtonContainer.appendChild(playButton);
   window.location.href = '#very-top';
+  scoreTable.textContent = '';
 }
 
 //TATIANA'S addEventListenerfunction displayResult()
@@ -557,7 +549,9 @@ var clearLeaderBoardButton = document.getElementById('clear-leader-board-button'
 clearLeaderBoardButton.addEventListener('click', function(){
 
   localStorage.clear();
-  allUsersArray = [new UserProfile(userName, 0)];
-
+  allUsersArray = [];
   scoreTable.textContent = '';
 });
+
+var playAgainUnderLeaderboard = document.getElementById('play-again-under-leaderboard');
+playAgainUnderLeaderboard.addEventListener('click', replayGame);
